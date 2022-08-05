@@ -8,4 +8,6 @@ But you can hear when image is not captured - there is no "photo sound"
 
 
 
-This code is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
+Photo part is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
+
+VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
