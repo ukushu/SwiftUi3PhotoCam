@@ -9,27 +9,23 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var alert = false
     
-    // since were going to read pic data. .. .
     @Published var output = AVCapturePhotoOutput()
     
-    //preview..
     @Published var preview: AVCaptureVideoPreviewLayer!
     
-    // Pic Data. ..
     @Published var picData = Data(count: 0)
     
     func check() {
         print ("check()...")
         
-        // first checking camerahas got permission . . .
+        // first checking camera has got permission...
         switch AVCaptureDevice.authorizationStatus (for: .video) {
         
         case .authorized:
             self.setUp()
             return
-            // Setting Up Session
+            // Setting Up Session...
         case .notDetermined:
-            //retusting for permission ... .
             AVCaptureDevice.requestAccess (for: .video) { (status) in
                 if status {
                     self.setUp()
@@ -45,6 +41,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func setUp() {
         print ("setUp()...")
+        
         do {
             // setting configs. ..
             self.session.beginConfiguration ( )
@@ -101,6 +98,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         print ("photoOutput()...")
+        
         if error != nil {
             print ("Error happened: \(error!.localizedDescription) | \(error.debugDescription)")
             return
