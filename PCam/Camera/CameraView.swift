@@ -2,7 +2,23 @@ import Foundation
 import SwiftUI
 import AVFoundation
 
-struct CameraView: UIViewRepresentable {
+struct CameraView: View {
+    @ObservedObject var camera: CameraModel
+    
+    init(camera: CameraModel) {
+        self.camera = camera
+        camera.checkPermission()
+    }
+    
+    var body: some View {
+        CameraViewInternal(camera: camera)
+            .alert(isPresented: $camera.alert) {
+                Alert(title: Text("No camera access"))
+            }
+    }
+}
+
+struct CameraViewInternal: UIViewRepresentable {
     @ObservedObject var camera: CameraModel
     
     func makeUIView (context: Context ) -> UIView {

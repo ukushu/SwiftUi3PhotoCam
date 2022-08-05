@@ -34,7 +34,6 @@ struct PhotoCamView: View {
                 .frame (height: 75)
             }
         }
-        .onAppear { camera.check() }
     }
 }
 

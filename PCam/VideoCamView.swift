@@ -7,59 +7,54 @@ struct VideoCamView: View {
     @Binding var isPhotoMode: Bool
     
     @StateObject var camera = CameraModel()
-    
+    @ObservedObject var telepVm = TeleprompterViewModel()
     
     var body: some View {
         ZStack {
+            CameraViewInternal (camera: camera)
+                .onAppear() { camera.checkPermission() }
             
             VStack {
-                HStack {
-                    Spacer()
-                    BtnPhotoVideoSwitcher(isPhotoMode: $isPhotoMode)
-                }
-                
-                TeleprompterView()
-                    .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.2))
+                TeleprompterView(telepVm: telepVm)
                 
                 Spacer()
+                
+                //BtnSwitchCameraMode()
             }
+        }
+    }
+    
+    func BtnSwitchCameraMode() -> some View {
+        HStack {
+            Spacer()
+            BtnPhotoVideoSwitcher(isPhotoMode: $isPhotoMode)
         }
     }
 }
 
 struct TeleprompterView: View {
-    @ObservedObject var telepVm = TeleprompterViewModel()
+    @ObservedObject var telepVm: TeleprompterViewModel
     
     @State var displaySettings = false
     @State var editMode = false
     
     var body: some View {
-        VStack {
-            ZStack {
-                VStack {
-                    TeleprompterView()
-                }
-                
-                VStack{
-                    Spacer()
-                    HStack{
-                        Spacer()
-                        
-                        Button(action: { displaySettings.toggle() }) {
-                            Image(systemName: "gear")
-                        }
-                        .padding( 5)
-                    }
-                }
-            }
+        VStack(spacing:0) {
+            TeleprompterView ()
+                .frame(height: 350, alignment: .top)
             
             if displaySettings {
                 SettingsView()
                     .padding(.vertical)
                     .padding(.horizontal, 15)
+                    .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
+            } else {
+                HStack {
+                    Spacer()
+                    BtnSettings()
+                }
             }
         }
-        .frame(height: 350, alignment: .top)
         .onAppear(){
             autoScroll()
         }
@@ -84,7 +79,7 @@ struct TeleprompterView: View {
                     .foregroundColor(telepVm.color)
                     .padding(.top, Globals.teleprompterSafeArea)
                     .padding(.bottom, 500)
-                    .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: 0.1))
+                    .background(Color(red: 0, green: 0, blue: 0, opacity: 0.01))
                     .fixedSize(horizontal: false, vertical: true)
                     .offset( x: 0, y: telepVm.position.y + telepVm.dragOffset.y )
                     .gesture(
@@ -109,14 +104,17 @@ struct TeleprompterView: View {
         }
         .frame(height: 350, alignment: .top)
         .clipShape(Rectangle())
-        .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: 0.1))
+        .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: telepVm.bgOpacity))
         .onTapGesture(count: 2) { editMode.toggle() }
     }
     
     func SettingsView() -> some View {
         VStack {
             VStack {
-                SpeedSlider()
+                HStack{
+                    SpeedSlider()
+                    BtnSettings()
+                }
                 
                 HStack {
                     ColorPicker(selection: $telepVm.color) { EmptyView() }
@@ -125,6 +123,8 @@ struct TeleprompterView: View {
                     
                     TextSizeSlider()
                 }
+                
+                BgOpacitySlider()
             }
         }
     }
@@ -132,6 +132,8 @@ struct TeleprompterView: View {
 
 extension TeleprompterView {
     func autoScroll() {
+        print("autoScroll()")
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
                 if telepVm.position.y < Globals.teleprompterSafeArea/2 && !telepVm.userDragging {
@@ -153,7 +155,16 @@ extension TeleprompterView {
             
             Text(Image(systemName: "hare"))
         }
-        
+    }
+    
+    func BgOpacitySlider() -> some View {
+        HStack {
+            Text(Image(systemName: "sun.and.horizon.fill"))
+            
+            BoundsSlider(min: 0, max: 1, value: $telepVm.bgOpacity)
+            
+            Text(Image(systemName: "moon.stars.fill"))
+        }
     }
     
     func TextSizeSlider() -> some View {
@@ -168,6 +179,17 @@ extension TeleprompterView {
         }
     }
     
+    func BtnSettings() -> some View {
+        Button(action: { displaySettings.toggle() }) {
+            Image(systemName: "gear")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(.orange)
+                .scaledToFit()
+                .frame(width: 25)
+        }
+        .padding(10)
+    }
 }
 
 class TeleprompterViewModel: ObservableObject {
@@ -182,6 +204,8 @@ class TeleprompterViewModel: ObservableObject {
     @Published var speed: CGFloat = 0.7
     //@Published var lastSpeed: CGFloat = 0.7
     
+    @Published var bgOpacity: CGFloat = 0.2
+    
     @Published var userDragging: Bool = false
 }
 
@@ -192,29 +216,37 @@ public class Globals {
 """
 Цей текст написаний спеціально з тестовою ціллю, що би ти, мій любий друже, міг перевірити на скільки добре працює програма.
 
-Тобі здається що цей текст безсенсовний, але насправді цей текст переповнений сенсом, адже ти його не просто так вирішив прочитати до кінця
+Тобі здається що цей текст безсенсовний, але насправді цей текст переповнений сенсом, адже ти його не просто так вирішив прочитати до кінця...
 
-Значить він, таки, тебе чимось чіпляє. Ніби то як тут переливання з пустого у порожнє, але, все таки, щось в цьому є, чи не так?
+Значить він, таки, тебе чимось чіпляє. Ніби то як тут переливання з пустого у порожнє, але, все таки, щось в цьому є, хіба ні?
 
-Щось мені підказує що тобі вже набридло, але ж тобі все ще цікаво читати, адже ти читаєш. Ти справді надієшся на те що далі щось зміниться?
+Щось мені підказує що тобі вже набридло, але ти читаєш і далі. Ти справді надієшся на те що далі щось зміниться?
 
 НЕ ЗМІНИТЬСЯ.
 
+Слухай, а, може, ти мазохіст?
+
 Все буде рівно так же як було завжди до цього.
 
-Хіба що смайлики додадуться. Чи емодзі, чи як там говориться у поріджів. 😄
+Хіба що смайлики додадуться. Чи емодзі, чи як там говориться у поріджів. 😄😄😄
+
+Емодзі це ж 💩
 
 Здавалося б, це тупо безсенсовна трата часу, але ти для чогось це продовжуєш читати. Ти просто псих. Ти довбаний псих. І я довбаний псих.
 
-Ми підходимо один одному. З нас вийшла б чудова пара, мені здається. Я молов би безсенсовну чуш, а ти б її читав би або слухав би. Сімейна ідилія.
+Знаєш, ми підходимо один одному.
 
-Ну от і все... Настав час прощатися....
+З нас вийшла б чудова пара, мені здається. Я молов би нісенітницю, а ти б її читав би або слухав би.
+
+Це і є сімейна ідилія, хіба ні?
+
+Ну от і все... Настав час прощатися...
 
 *наспівую* Оообійми мене, обійми мене, обійми....
 
 Чому ти не хочеш обійматися?
 
-Ізвращуга.
+ЗБОЧЕНЕЦЬ!
 
 Ну все, па-па.
 """

@@ -15,8 +15,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var picData = Data(count: 0)
     
-    func check() {
-        print ("check()...")
+    func checkPermission() {
+        print ("checkPermission()...")
         
         // first checking camera has got permission...
         switch AVCaptureDevice.authorizationStatus (for: .video) {
