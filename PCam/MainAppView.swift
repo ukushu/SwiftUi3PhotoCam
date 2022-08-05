@@ -1,12 +1,6 @@
 import SwiftUI
 import AVFoundation
 
-struct ContentView: View {
-    var body: some View {
-        MainAppView()
-    }
-}
-
 struct MainAppView: View {
     @StateObject var camera = CameraModel()
     
@@ -18,7 +12,7 @@ struct MainAppView: View {
             VStack {
                 Spacer()
                 
-                HStack {
+                HStack(spacing: 0) {
                     if camera.isTaken {
                         BtnSave() { camera.savePhoto() }
                         
@@ -29,6 +23,7 @@ struct MainAppView: View {
                         BtnTakePhoto() { camera.takePhoto() }
                     }
                 }
+                .padding()
                 .frame (height: 75)
             }
         }
