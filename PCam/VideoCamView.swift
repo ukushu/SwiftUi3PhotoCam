@@ -72,7 +72,7 @@ struct TeleprompterView: View {
                     TextEditor(text: $telepVm.text)
                     
                     HStack (spacing: 20){
-                        Button(action: { editMode.toggle(); telepVm.position.y = 60 } ) { Text("Close") }
+                        Button(action: { editMode.toggle(); telepVm.position.y = Globals.teleprompterSafeArea } ) { Text("Close") }
                         Button(action: { telepVm.text = "" } ) { Text("Clear") }
                         //Button(action: { telepVm.text = "" } ) { Text("Paste") }
                     }
@@ -82,7 +82,7 @@ struct TeleprompterView: View {
                     .font(.system(size: telepVm.textSize))
                     .frame(width: UIScreen.screenWidth - 7)
                     .foregroundColor(telepVm.color)
-                    .padding(.top, 60)
+                    .padding(.top, Globals.teleprompterSafeArea)
                     .padding(.bottom, 500)
                     .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: 0.1))
                     .fixedSize(horizontal: false, vertical: true)
@@ -97,8 +97,8 @@ struct TeleprompterView: View {
                                 telepVm.userDragging = false
                                 telepVm.position.y = telepVm.position.y + gesture.translation.height
                                 
-                                if telepVm.position.y > 60 {
-                                    telepVm.position.y = 60
+                                if telepVm.position.y > Globals.teleprompterSafeArea {
+                                    telepVm.position.y = Globals.teleprompterSafeArea
                                 }
                                 
                                 telepVm.dragOffset = .zero
@@ -134,7 +134,7 @@ extension TeleprompterView {
     func autoScroll() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
-                if telepVm.position.y < telepVm.textSize * 2 && !telepVm.userDragging {
+                if telepVm.position.y < Globals.teleprompterSafeArea/2 && !telepVm.userDragging {
                     telepVm.position.y -= telepVm.speed
                 }
             }
@@ -177,7 +177,7 @@ class TeleprompterViewModel: ObservableObject {
     @Published var textSize: CGFloat = 20
     @Published var color: Color = .yellow
     
-    @Published var text: String = reallyLargeText
+    @Published var text: String = Globals.defaultText
     
     @Published var speed: CGFloat = 0.7
     //@Published var lastSpeed: CGFloat = 0.7
@@ -185,45 +185,41 @@ class TeleprompterViewModel: ObservableObject {
     @Published var userDragging: Bool = false
 }
 
-let reallyLargeText =
+public class Globals {
+    static var teleprompterSafeArea: CGFloat = 40
+    
+    static var defaultText =
 """
-Written in SwiftUI 3, so plist file is absent (plist is accessible in project settings)
+Цей текст написаний спеціально з тестовою ціллю, що би ти, мій любий друже, міг перевірити на скільки добре працює програма.
 
-For some reason not always capture/save new image, have no idea why (not able to save in case it is not captures)
+Тобі здається що цей текст безсенсовний, але насправді цей текст переповнений сенсом, адже ти його не просто так вирішив прочитати до кінця
 
-But you can hear when image is not captured - there is no "photo sound"
+Значить він, таки, тебе чимось чіпляє. Ніби то як тут переливання з пустого у порожнє, але, все таки, щось в цьому є, чи не так?
 
-Photo part is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
+Щось мені підказує що тобі вже набридло, але ж тобі все ще цікаво читати, адже ти читаєш. Ти справді надієшся на те що далі щось зміниться?
 
-VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
-Written in SwiftUI 3, so plist file is absent (plist is accessible in project settings)
+НЕ ЗМІНИТЬСЯ.
 
-For some reason not always capture/save new image, have no idea why (not able to save in case it is not captures)
+Все буде рівно так же як було завжди до цього.
 
-But you can hear when image is not captured - there is no "photo sound"
+Хіба що смайлики додадуться. Чи емодзі, чи як там говориться у поріджів. 😄
 
-Photo part is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
+Здавалося б, це тупо безсенсовна трата часу, але ти для чогось це продовжуєш читати. Ти просто псих. Ти довбаний псих. І я довбаний псих.
 
-VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
-Written in SwiftUI 3, so plist file is absent (plist is accessible in project settings)
+Ми підходимо один одному. З нас вийшла б чудова пара, мені здається. Я молов би безсенсовну чуш, а ти б її читав би або слухав би. Сімейна ідилія.
 
-For some reason not always capture/save new image, have no idea why (not able to save in case it is not captures)
+Ну от і все... Настав час прощатися....
 
-But you can hear when image is not captured - there is no "photo sound"
+*наспівую* Оообійми мене, обійми мене, обійми....
 
-Photo part is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
+Чому ти не хочеш обійматися?
 
-VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
-Written in SwiftUI 3, so plist file is absent (plist is accessible in project settings)
+Ізвращуга.
 
-For some reason not always capture/save new image, have no idea why (not able to save in case it is not captures)
-
-But you can hear when image is not captured - there is no "photo sound"
-
-Photo part is based on videotutorial: https://www.youtube.com/watch?v=8hvaniprctk but code is not the same
-
-VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
+Ну все, па-па.
 """
+}
+
 
 extension UIScreen {
    static let screenWidth = UIScreen.main.bounds.size.width
