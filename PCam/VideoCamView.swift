@@ -104,11 +104,11 @@ struct TeleprompterView: View {
                                 telepVm.dragOffset = .zero
                             }
                     )
+                    .padding(.horizontal, 7)
             }
         }
         .frame(height: 350, alignment: .top)
         .clipShape(Rectangle())
-        .padding(.horizontal, 7)
         .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: 0.1))
         .onTapGesture(count: 2) { editMode.toggle() }
     }
@@ -161,7 +161,7 @@ extension TeleprompterView {
             Text("a")
                 .font(.system(size: 20))
             
-            BoundsSlider(min: 15, max: 30, value: $telepVm.textSize)
+            BoundsSlider(min: 15, max: 45, value: $telepVm.textSize)
             
             Text("A")
                 .font(.system(size: 20))
