@@ -3,8 +3,6 @@ import Foundation
 import AVFoundation
 
 class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
-    @Published var isTaken = false
-    
     @Published var session = AVCaptureSession()
     
     @Published var alert = false
@@ -13,7 +11,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var preview: AVCaptureVideoPreviewLayer!
     
-    @Published var picData = Data(count: 0)
     
     func checkPermission() {
         print ("checkPermission()...")
@@ -47,7 +44,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
             self.session.beginConfiguration ( )
             
             // change for your own...
-            let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position : .back)
+            let device = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position : .back)
             let input = try AVCaptureDeviceInput (device: device!)
             
             // checking and adding to session .. .
@@ -64,66 +61,5 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         } catch {
             print(error.localizedDescription)
         }
-    }
-    
-    func takePhoto () {
-        print ("takePhoto()...")
-        
-        DispatchQueue.global(qos: .background).async {
-            print ("try to capture the photo...")
-            self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-            print ("captured photo...")
-            
-            DispatchQueue.main.async {
-                withAnimation { self.isTaken.toggle() }
-            }
-            
-            self.session.stopRunning()
-        }
-    }
-    
-    func discardPhoto() {
-        print ("discardPhoto()...")
-        
-        DispatchQueue.global(qos: .background).async {
-            self.session.startRunning()
-            
-            DispatchQueue.main.async {
-                withAnimation{ self.isTaken.toggle() }
-                
-                self.picData = Data(count: 0)
-            }
-        }
-    }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        print ("photoOutput()...")
-        
-        if error != nil {
-            print ("Error happened: \(error!.localizedDescription) | \(error.debugDescription)")
-            return
-        }
-        
-        print ("Trying to take pic...")
-        
-        guard let imageData = photo.fileDataRepresentation() else { return }
-        
-        self.picData = imageData
-        
-        print ("pic taken...")
-    }
-    
-    func savePhoto() {
-        guard let image = UIImage(data : self.picData) else {
-            print ("Failed to get image data....")
-            return
-        }
-        
-        // saving Image..
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        
-        print ("saved Successfully...")
-        
-        discardPhoto()
     }
 }

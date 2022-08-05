@@ -4,8 +4,6 @@ import Foundation
 import Introspect
 
 struct VideoCamView: View {
-    @Binding var isPhotoMode: Bool
-    
     @StateObject var camera = CameraModel()
     @ObservedObject var telepVm = TeleprompterViewModel()
     
@@ -18,16 +16,7 @@ struct VideoCamView: View {
                 TeleprompterView(telepVm: telepVm)
                 
                 Spacer()
-                
-                //BtnSwitchCameraMode()
             }
-        }
-    }
-    
-    func BtnSwitchCameraMode() -> some View {
-        HStack {
-            Spacer()
-            BtnPhotoVideoSwitcher(isPhotoMode: $isPhotoMode)
         }
     }
 }
@@ -251,7 +240,6 @@ public class Globals {
 Ну все, па-па.
 """
 }
-
 
 extension UIScreen {
    static let screenWidth = UIScreen.main.bounds.size.width
