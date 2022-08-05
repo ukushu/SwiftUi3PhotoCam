@@ -8,7 +8,6 @@ struct VideoCamView: View {
     
     @StateObject var camera = CameraModel()
     
-    @ObservedObject var telepVm = TeleprompterViewModel()
     
     var body: some View {
         ZStack {
@@ -19,49 +18,102 @@ struct VideoCamView: View {
                     BtnPhotoVideoSwitcher(isPhotoMode: $isPhotoMode)
                 }
                 
-                VStack{
-                    Text(reallyLargeText)
-                        .font(.system(size: telepVm.textSize))
-                        .foregroundColor(telepVm.color)
-                        .padding(.top, 50)
-                        .padding(.bottom, 500)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .offset( x: 0, y: telepVm.position.y + telepVm.dragOffset.y )
-                        .gesture(
-                            DragGesture()
-                                .onChanged { gesture in
-                                    telepVm.userDragging = true
-                                    telepVm.dragOffset.y = gesture.translation.height
-                                }
-                                .onEnded { gesture in
-                                    telepVm.userDragging = false
-                                    telepVm.position.y = telepVm.position.y + gesture.translation.height
-                                    
-                                    if telepVm.position.y > 50 {
-                                        telepVm.position.y = 50
-                                    }
-                                    
-                                    telepVm.dragOffset = .zero
-                                }
-                        )
-                }
-                .frame(height: 500, alignment: .top)
-                .clipShape(Rectangle())
-                
-                Divider()
-                
-                Text("offset: \(telepVm.position.y) | \(telepVm.position.y + telepVm.dragOffset.y) |")
+                TeleprompterView()
+                    .background(Color(red: 0.5, green: 0.5, blue: 0.5, opacity: 0.2))
                 
                 Spacer()
             }
         }
+    }
+}
+
+struct TeleprompterView: View {
+    @ObservedObject var telepVm = TeleprompterViewModel()
+    
+    @State var displaySettings = false
+    
+    var body: some View {
+        VStack {
+            ZStack {
+                VStack {
+                    TeleprompterView()
+                }
+                
+                VStack{
+                    Spacer()
+                    HStack{
+                        Spacer()
+                        
+                        Button(action: { displaySettings.toggle() }) {
+                            Image(systemName: "gear")
+                        }
+                    }
+                }
+            }
+            
+            if displaySettings {
+                SettingsView()
+                    .padding(.vertical)
+                    .padding(.horizontal, 15)
+            }
+        }
+        .frame(height: 350, alignment: .top)
         .onAppear(){
-            callFunc()
+            autoScroll()
         }
     }
     
-    func callFunc() {
-        print("callFunc()")
+    func TeleprompterView() -> some View {
+        VStack {
+            Text(reallyLargeText)
+                .font(.system(size: telepVm.textSize))
+                .foregroundColor(telepVm.color)
+                .padding(.top, 40)
+                .padding(.bottom, 500)
+                .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: 0.1))
+                .fixedSize(horizontal: false, vertical: true)
+                .offset( x: 0, y: telepVm.position.y + telepVm.dragOffset.y )
+                .gesture(
+                    DragGesture()
+                        .onChanged { gesture in
+                            telepVm.userDragging = true
+                            telepVm.dragOffset.y = gesture.translation.height
+                        }
+                        .onEnded { gesture in
+                            telepVm.userDragging = false
+                            telepVm.position.y = telepVm.position.y + gesture.translation.height
+                            
+                            if telepVm.position.y > 40 {
+                                telepVm.position.y = 40
+                            }
+                            
+                            telepVm.dragOffset = .zero
+                        }
+                )
+        }
+        .frame(height: 350, alignment: .top)
+        .clipShape(Rectangle())
+    }
+    
+    func SettingsView() -> some View {
+        VStack {
+            VStack {
+                SpeedSlider()
+                
+                HStack {
+                    ColorPicker(selection: $telepVm.color) { EmptyView() }
+                        .frame(width: 25)
+                        .padding(.trailing, 5)
+                    
+                    TextSizeSlider()
+                }
+            }
+        }
+    }
+}
+
+extension TeleprompterView {
+    func autoScroll() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
                 if telepVm.position.y < telepVm.textSize * 2 && !telepVm.userDragging {
@@ -69,20 +121,46 @@ struct VideoCamView: View {
                 }
             }
             
-            callFunc()
+            autoScroll()
         }
     }
 }
 
+extension TeleprompterView {
+    func SpeedSlider() -> some View {
+        HStack {
+            Text(Image(systemName: "tortoise"))
+            
+            BoundsSlider(min: 0.7, max: 5, value: $telepVm.speed)
+            
+            Text(Image(systemName: "hare"))
+        }
+        
+    }
+    
+    func TextSizeSlider() -> some View {
+        HStack {
+            Text("a")
+                .font(.system(size: 20))
+            
+            BoundsSlider(min: 15, max: 30, value: $telepVm.textSize)
+            
+            Text("A")
+                .font(.system(size: 20))
+        }
+    }
+    
+}
+
 class TeleprompterViewModel: ObservableObject {
     @Published var dragOffset: CGPoint = .zero
-    @Published var position: CGPoint = CGPoint(x: 0, y: 50)
+    @Published var position: CGPoint = CGPoint(x: 0, y: 40)
     
     @Published var textSize: CGFloat = 20
     @Published var color: Color = .yellow
     
-    // 2 - 7/ 2 is slowest speed
     @Published var speed: CGFloat = 0.7
+    //@Published var lastSpeed: CGFloat = 0.7
     
     @Published var userDragging: Bool = false
 }
