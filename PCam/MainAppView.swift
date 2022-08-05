@@ -2,7 +2,7 @@ import SwiftUI
 import AVFoundation
 
 struct MainAppView : View {
-    @State var photoMode: Bool = true
+    @State var photoMode: Bool = false
     
     var body: some View {
         if photoMode {
@@ -36,3 +36,4 @@ struct BtnPhotoVideoSwitcher: View {
         }
     }
 }
+
