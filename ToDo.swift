@@ -17,6 +17,13 @@
  * Video framerate
  * ремоут контрол: через гейм-контроллер, блютуз-клаву, через інший епл девайс
  * контакт саппорт
+ * Margins slider
+ 
+ VideoSettings:
+ * Choose camera (front is default)
+ * Video resolution
+ * Video frame rate
+ * 
  
  
  
