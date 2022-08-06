@@ -71,9 +71,9 @@
 		1D3735C7289C6AE20076EF38 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
 		1D3735C9289C6AE40076EF38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D3735CC289C6AE40076EF38 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1D3735D2289C6AE40076EF38 /* PCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D3735D2289C6AE40076EF38 /* VideqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3735D6289C6AE40076EF38 /* PCamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamTests.swift; sourceTree = "<group>"; };
-		1D3735DC289C6AE40076EF38 /* PCamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D3735DC289C6AE40076EF38 /* VideqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3735E0289C6AE40076EF38 /* PCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamUITests.swift; sourceTree = "<group>"; };
 		1D3735E2289C6AE40076EF38 /* PCamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D61CCC9289D768300044AA2 /* BoundsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsSlider.swift; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				1D3735C2289C6AE20076EF38 /* Videq.app */,
-				1D3735D2289C6AE40076EF38 /* PCamTests.xctest */,
-				1D3735DC289C6AE40076EF38 /* PCamUITests.xctest */,
+				1D3735D2289C6AE40076EF38 /* VideqTests.xctest */,
+				1D3735DC289C6AE40076EF38 /* VideqUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -257,9 +257,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D3735C1289C6AE20076EF38 /* PCam */ = {
+		1D3735C1289C6AE20076EF38 /* Videq */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D3735E6289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCam" */;
+			buildConfigurationList = 1D3735E6289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "Videq" */;
 			buildPhases = (
 				1D3735BE289C6AE20076EF38 /* Sources */,
 				1D3735BF289C6AE20076EF38 /* Frameworks */,
@@ -270,7 +270,7 @@
 			);
 			dependencies = (
 			);
-			name = PCam;
+			name = Videq;
 			packageProductDependencies = (
 				1D95CB70289D454B000557E5 /* Introspect */,
 			);
@@ -278,9 +278,9 @@
 			productReference = 1D3735C2289C6AE20076EF38 /* Videq.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1D3735D1289C6AE40076EF38 /* PCamTests */ = {
+		1D3735D1289C6AE40076EF38 /* VideqTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D3735E9289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCamTests" */;
+			buildConfigurationList = 1D3735E9289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "VideqTests" */;
 			buildPhases = (
 				1D3735CE289C6AE40076EF38 /* Sources */,
 				1D3735CF289C6AE40076EF38 /* Frameworks */,
@@ -291,14 +291,14 @@
 			dependencies = (
 				1D3735D4289C6AE40076EF38 /* PBXTargetDependency */,
 			);
-			name = PCamTests;
+			name = VideqTests;
 			productName = PCamTests;
-			productReference = 1D3735D2289C6AE40076EF38 /* PCamTests.xctest */;
+			productReference = 1D3735D2289C6AE40076EF38 /* VideqTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1D3735DB289C6AE40076EF38 /* PCamUITests */ = {
+		1D3735DB289C6AE40076EF38 /* VideqUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D3735EC289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCamUITests" */;
+			buildConfigurationList = 1D3735EC289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "VideqUITests" */;
 			buildPhases = (
 				1D3735D8289C6AE40076EF38 /* Sources */,
 				1D3735D9289C6AE40076EF38 /* Frameworks */,
@@ -309,9 +309,9 @@
 			dependencies = (
 				1D3735DE289C6AE40076EF38 /* PBXTargetDependency */,
 			);
-			name = PCamUITests;
+			name = VideqUITests;
 			productName = PCamUITests;
-			productReference = 1D3735DC289C6AE40076EF38 /* PCamUITests.xctest */;
+			productReference = 1D3735DC289C6AE40076EF38 /* VideqUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -356,9 +356,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D3735C1289C6AE20076EF38 /* PCam */,
-				1D3735D1289C6AE40076EF38 /* PCamTests */,
-				1D3735DB289C6AE40076EF38 /* PCamUITests */,
+				1D3735C1289C6AE20076EF38 /* Videq */,
+				1D3735D1289C6AE40076EF38 /* VideqTests */,
+				1D3735DB289C6AE40076EF38 /* VideqUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -437,12 +437,12 @@
 /* Begin PBXTargetDependency section */
 		1D3735D4289C6AE40076EF38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1D3735C1289C6AE20076EF38 /* PCam */;
+			target = 1D3735C1289C6AE20076EF38 /* Videq */;
 			targetProxy = 1D3735D3289C6AE40076EF38 /* PBXContainerItemProxy */;
 		};
 		1D3735DE289C6AE40076EF38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1D3735C1289C6AE20076EF38 /* PCam */;
+			target = 1D3735C1289C6AE20076EF38 /* Videq */;
 			targetProxy = 1D3735DD289C6AE40076EF38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -714,7 +714,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D3735E6289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCam" */ = {
+		1D3735E6289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "Videq" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D3735E7289C6AE40076EF38 /* Debug */,
@@ -723,7 +723,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D3735E9289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCamTests" */ = {
+		1D3735E9289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "VideqTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D3735EA289C6AE40076EF38 /* Debug */,
@@ -732,7 +732,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1D3735EC289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "PCamUITests" */ = {
+		1D3735EC289C6AE40076EF38 /* Build configuration list for PBXNativeTarget "VideqUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D3735ED289C6AE40076EF38 /* Debug */,
