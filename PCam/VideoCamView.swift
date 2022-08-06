@@ -65,7 +65,7 @@ struct TeleprompterView: View {
                 Text(telepVm.text)
                     .font(.system(size: telepVm.textSize))
                     .frame(width: UIScreen.screenWidth - 7)
-                    .foregroundColor(telepVm.color)
+                    .foregroundColor(telepVm.textColor)
                     .padding(.top, Globals.teleprompterSafeArea)
                     .padding(.bottom, 500)
                     .background(Color(red: 0, green: 0, blue: 0, opacity: 0.01))
@@ -106,7 +106,7 @@ struct TeleprompterView: View {
                 }
                 
                 HStack {
-                    ColorPicker(selection: $telepVm.color) { EmptyView() }
+                    ColorPicker(selection: $telepVm.textColor) { EmptyView() }
                         .frame(width: 25)
                         .padding(.trailing, 5)
                     
@@ -185,15 +185,15 @@ class TeleprompterViewModel: ObservableObject {
     @Published var dragOffset: CGPoint = .zero
     @Published var position: CGPoint = CGPoint(x: 0, y: 60)
     
-    @Published var textSize: CGFloat = 20
-    @Published var color: Color = .yellow
+    @Published(key: "textSize") var textSize: CGFloat = 20
+    @Published var textColor: Color = .yellow
     
-    @Published var text: String = Globals.defaultText
+    @Published(key: "telepText") var text: String = Globals.defaultText
     
-    @Published var speed: CGFloat = 0.7
+    @Published(key: "telepSpeed") var speed: CGFloat = 0.7
     //@Published var lastSpeed: CGFloat = 0.7
     
-    @Published var bgOpacity: CGFloat = 0.2
+    @Published(key: "bgOpacity")  var bgOpacity: CGFloat = 0.2
     
     @Published var userDragging: Bool = false
 }

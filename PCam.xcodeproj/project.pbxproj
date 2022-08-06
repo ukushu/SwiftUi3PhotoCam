@@ -17,6 +17,8 @@
 		1D3735E1289C6AE40076EF38 /* PCamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735E0289C6AE40076EF38 /* PCamUITests.swift */; };
 		1D3735E3289C6AE40076EF38 /* PCamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735E2289C6AE40076EF38 /* PCamUITestsLaunchTests.swift */; };
 		1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCC9289D768300044AA2 /* BoundsSlider.swift */; };
+		1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCB289DE2EB00044AA2 /* PublishedExt.swift */; };
+		1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCE289DE5D400044AA2 /* ColorExt.swift */; };
 		1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		1D3735E0289C6AE40076EF38 /* PCamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamUITests.swift; sourceTree = "<group>"; };
 		1D3735E2289C6AE40076EF38 /* PCamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1D61CCC9289D768300044AA2 /* BoundsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsSlider.swift; sourceTree = "<group>"; };
+		1D61CCCB289DE2EB00044AA2 /* PublishedExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedExt.swift; sourceTree = "<group>"; };
+		1D61CCCE289DE5D400044AA2 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,9 +177,19 @@
 		1D61CCC8289D767300044AA2 /* MoreSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1D61CCCD289DE5C800044AA2 /* Ext */,
 				1D61CCC9289D768300044AA2 /* BoundsSlider.swift */,
 			);
 			path = MoreSwiftUI;
+			sourceTree = "<group>";
+		};
+		1D61CCCD289DE5C800044AA2 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				1D61CCCB289DE2EB00044AA2 /* PublishedExt.swift */,
+				1D61CCCE289DE5D400044AA2 /* ColorExt.swift */,
+			);
+			path = Ext;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +333,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D01CEF4289CA0E2004ED83D /* CameraView.swift in Sources */,
+				1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */,
 				1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */,
+				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
 				1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */,
 				1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
