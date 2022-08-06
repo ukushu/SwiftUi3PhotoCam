@@ -12,3 +12,4 @@ VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
 new features ideas: 
 https://www.youtube.com/watch?v=xIU_sWcMI00
 https://www.youtube.com/watch?v=1JqY75DJ_Ww
+https://www.youtube.com/watch?v=qH2T0My5zKk
