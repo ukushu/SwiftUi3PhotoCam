@@ -7,7 +7,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     
     @Published var alert = false
     
-    @Published var output = AVCapturePhotoOutput()
+    @Published var output = AVCaptureMovieFileOutput()
     
     @Published var preview: AVCaptureVideoPreviewLayer!
     
@@ -40,16 +40,18 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         print ("setUp()...")
         
         do {
-            // setting configs. ..
             self.session.beginConfiguration ( )
             
-            // change for your own...
-            let device = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position : .back)
-            let input = try AVCaptureDeviceInput (device: device!)
+            let videoDevice = AVCaptureDevice.default(.builtInDualWideCamera, for: .video, position : .back)
+            let videoInput = try AVCaptureDeviceInput (device: videoDevice!)
+            
+            let audioDevice = AVCaptureDevice.default(for: .audio)
+            let audioInput = try AVCaptureDeviceInput (device: audioDevice!)
             
             // checking and adding to session .. .
-            if self.session.canAddInput (input) {
-                self.session.addInput (input )
+            if self.session.canAddInput(videoInput) && self.session.canAddInput(audioInput)  {
+                self.session.addInput(videoInput)
+                self.session.addInput(audioInput)
             }
             
             // same for output. ...

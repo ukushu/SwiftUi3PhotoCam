@@ -9,8 +9,8 @@ struct VideoCamView: View {
     
     var body: some View {
         ZStack {
-            CameraViewInternal (camera: camera)
-                .onAppear() { camera.checkPermission() }
+            CameraView()
+                .environmentObject(camera)
             
             VStack {
                 TeleprompterView(telepVm: telepVm)
