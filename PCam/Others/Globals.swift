@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 public class Globals {
-    static var teleprompterSafeArea: CGFloat = 40
+    static var teleprompterSafeArea: CGFloat = 60
     
     static var defaultText =
 """

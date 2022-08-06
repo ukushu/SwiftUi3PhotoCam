@@ -75,13 +75,13 @@ extension TeleprompterView {
     func TeleprompterEditModeBtnsPanel() -> some View {
         HStack (spacing: 40){
             Button(action: { editMode.toggle(); telepVm.position.y = Globals.teleprompterSafeArea } )
-                { SuperBtn(text: "Close", icon: "xmark.circle.fill") }
+                { SuperBtnLabel(text: "Close", icon: "xmark.circle.fill") }
             
             Button(action: { telepVm.text = "" } )
-                { SuperBtn(text: "Clear", icon: "doc") }
+                { SuperBtnLabel(text: "Clear", icon: "doc") }
             
             Button(action: { pasteboardPaste() } )
-                { SuperBtn(text: "Paste", icon: "arrowshape.turn.up.left.fill") }
+                { SuperBtnLabel(text: "Paste", icon: "arrowshape.turn.up.left.fill") }
         }
         .padding(.bottom, 10)
     }
@@ -127,7 +127,7 @@ extension TeleprompterView {
     }
 }
 
-struct SuperBaseBtn : View {
+struct SuperBaseBtnLabel : View {
     let text: String
     let icon: String
     
@@ -142,7 +142,7 @@ struct SuperBaseBtn : View {
     }
 }
 
-struct SuperBtn : View {
+struct SuperBtnLabel : View {
     let text: String
     let icon: String
     
@@ -172,7 +172,7 @@ extension TeleprompterView {
     func autoScroll() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
-                if telepVm.position.y < Globals.teleprompterSafeArea/2 && !telepVm.userDragging {
+                if telepVm.position.y < Globals.teleprompterSafeArea - 10 && !telepVm.userDragging {
                     telepVm.position.y -= telepVm.speed
                 }
             }
