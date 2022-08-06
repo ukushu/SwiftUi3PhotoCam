@@ -25,6 +25,7 @@ struct MainMenuView : View {
         .transition(.slide)
         .onAppear { splashScreenDisableIfNeeded() }
         .animation(.easeInOut, value: scene)
+        .preferredColorScheme(.dark)
     }
     
     func MainMenuView() -> some View {
