@@ -12,42 +12,51 @@ extension TeleprompterSettingsView {
     func SpeedSlider() -> some View {
         HStack {
             Text(Image(systemName: "tortoise"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
             
             BoundsSlider(min: 0.7, max: 5, value: $model.speed)
             
             Text(Image(systemName: "hare"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
         }
     }
     
     func BgOpacitySlider() -> some View {
         HStack {
             Text(Image(systemName: "sun.and.horizon.fill"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
             
             BoundsSlider(min: 0, max: 1, value: $model.bgOpacity)
             
             Text(Image(systemName: "moon.stars.fill"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
         }
     }
     
     func MarginsSlider() -> some View {
         HStack {
             Text(Image(systemName: "rectangle.fill"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
             
             BoundsSlider(min: 0, max: 200, value: $model.marginsH)
             
             Text(Image(systemName: "rectangle.split.3x1.fill"))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
         }
+        .padding(.trailing, 50)
     }
     
     func TextSizeSlider() -> some View {
         HStack {
             Text("a")
                 .font(.system(size: 20))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
             
             BoundsSlider(min: 15, max: 45, value: $model.textSize)
             
             Text("A")
                 .font(.system(size: 20))
+                .frame(width: Globals.sliderIconWidth, alignment: .center)
         }
     }
     

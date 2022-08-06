@@ -23,5 +23,6 @@ struct TeleprompterSceneView: View {
                     .padding(.bottom, 20)
             }
         }
+        .background(Color.black)
     }
 }

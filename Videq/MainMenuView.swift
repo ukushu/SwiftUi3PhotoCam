@@ -2,20 +2,29 @@ import Foundation
 import SwiftUI
 
 struct MainMenuView : View {
-    @State var scene = AppScene.mainMenu
+    @State var scene = AppScene.splashScreen
     
     var body: some View {
-        switch scene {
-        case .mainMenu:
-            MainMenuView()
-        case .teleprompterCam:
-            TelepromterVideoCamView()
-                .background(Color(red: 0, green: 0, blue: 0.01, opacity: 0.01))
-        case .reelsCam:
-            NotImplementedYet()
-        case .teleprompter:
-            TeleprompterSceneView()
+        VStack {
+            switch scene {
+            case .mainMenu:
+                MainMenuView()
+            case .teleprompterCam:
+                TelepromterVideoCamView()
+                    .background(Color(red: 0, green: 0, blue: 0.01, opacity: 0.01))
+            case .reelsCam:
+                NotImplementedYet()
+            case .teleprompter:
+                TeleprompterSceneView()
+            case .support:
+                NotImplementedYet()
+            case .splashScreen:
+                SplashScreenView()
+            }
         }
+        .transition(.slide)
+        .onAppear { splashScreenDisableIfNeeded() }
+        .animation(.easeInOut, value: scene)
     }
     
     func MainMenuView() -> some View {
@@ -27,6 +36,8 @@ struct MainMenuView : View {
             Button(action: { scene = .teleprompter } ) { Text("Teleprompter") }
             
             Button(action: { scene = .teleprompterCam } ) { Text("Teleprompter + Camera") }
+            
+            Button(action: { scene = .support } ) { Text("Contact Support") }
         }
     }
 }
@@ -51,4 +62,37 @@ enum AppScene {
     case teleprompter
     case teleprompterCam
     case mainMenu
+    case support
+    case splashScreen
+}
+
+
+////////////////////
+///HELPERS
+////////////////////
+
+fileprivate extension MainMenuView {
+
+    func splashScreenDisableIfNeeded() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+            if scene == .splashScreen {
+                scene = .mainMenu
+            }
+        }
+    }
+}
+
+fileprivate struct SplashScreenView : View {
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            Image("StartScreenLogo")
+                .resizable()
+                .scaledToFit()
+            
+            Spacer()
+        }
+        .background(.white)
+    }
 }

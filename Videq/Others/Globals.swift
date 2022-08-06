@@ -3,6 +3,7 @@ import SwiftUI
 
 public class Globals {
     static var teleprompterSafeArea: CGFloat = 60
+    static var sliderIconWidth: CGFloat = 32
     
     static var defaultText =
 """

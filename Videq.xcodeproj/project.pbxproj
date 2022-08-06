@@ -28,6 +28,7 @@
 		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
 		1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* TelepromterView.swift */; };
 		1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */; };
+		1DDC26C3289F15910056ADED /* fillParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26C2289F15910056ADED /* fillParent.swift */; };
 		1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318C289E120B00FB4E22 /* TouchView.swift */; };
 		1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318F289E124900FB4E22 /* Configuration.swift */; };
 		1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3191289E12D600FB4E22 /* Visualiser.swift */; };
@@ -91,6 +92,7 @@
 		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		1DDC26BB289EF3130056ADED /* TelepromterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterView.swift; sourceTree = "<group>"; };
 		1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterSettingsView.swift; sourceTree = "<group>"; };
+		1DDC26C2289F15910056ADED /* fillParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fillParent.swift; sourceTree = "<group>"; };
 		1DDD318C289E120B00FB4E22 /* TouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		1DDD318F289E124900FB4E22 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1DDD3191289E12D600FB4E22 /* Visualiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualiser.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		1DDC26BF289F0C2C0056ADED /* AppCoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				1DDC26C2289F15910056ADED /* fillParent.swift */,
 			);
 			path = AppCoreClone;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
 				1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */,
 				1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */,
+				1DDC26C3289F15910056ADED /* fillParent.swift in Sources */,
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
