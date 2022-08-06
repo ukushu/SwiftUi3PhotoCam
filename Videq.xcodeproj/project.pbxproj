@@ -23,6 +23,7 @@
 		1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */; };
 		1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
+		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
 		1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318C289E120B00FB4E22 /* TouchView.swift */; };
 		1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318F289E124900FB4E22 /* Configuration.swift */; };
 		1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3191289E12D600FB4E22 /* Visualiser.swift */; };
@@ -81,6 +82,7 @@
 		1D61CCD0289DFA9E00044AA2 /* Controlls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controlls.swift; sourceTree = "<group>"; };
 		1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamView.swift; sourceTree = "<group>"; };
+		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		1DDD318C289E120B00FB4E22 /* TouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		1DDD318F289E124900FB4E22 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1DDD3191289E12D600FB4E22 /* Visualiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualiser.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		1D3735B9289C6AE20076EF38 = {
 			isa = PBXGroup;
 			children = (
+				1DDC26B4289E576C0056ADED /* ToDo.swift */,
 				1D61CCC8289D767300044AA2 /* MoreSwiftUI */,
 				1D3735C4289C6AE20076EF38 /* Videq */,
 				1D3735D5289C6AE40076EF38 /* VideqTests */,
@@ -400,6 +403,7 @@
 				1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */,
 				1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */,
 				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
+				1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */,
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
