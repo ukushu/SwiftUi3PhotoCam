@@ -12,13 +12,16 @@ struct TeleprompterSceneView: View {
     @ObservedObject var model = TeleprompterViewModel(miniMode: false)
     
     var body: some View {
-        VStack {
+        ZStack {
             TeleprompterView(model: model)
-                .teleprompterMaxi(height: UIScreen.screenHeight - 200)
+                .teleprompterMaxi(height: UIScreen.screenHeight)
             
-            TeleprompterSettingsView(model: model, isMini: false)
-                .padding(.bottom, 20)
-                .frame(height: 200)
+            VStack {
+                Spacer()
+                
+                TeleprompterSettingsView(model: model, isMini: false)
+                    .padding(.bottom, 20)
+            }
         }
     }
 }

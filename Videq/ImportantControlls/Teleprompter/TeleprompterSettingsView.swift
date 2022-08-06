@@ -33,7 +33,11 @@ struct TeleprompterSettingsView: View {
                                     .padding(.leading, 10)
                             }
                             
-                            BgOpacitySlider()
+                            if isMini {
+                                BgOpacitySlider()
+                            }
+                            
+                            MarginsSlider()
                             
                             if !isMini {
                                 Toggle("Mirror by Y axis", isOn: $model.mirrorYAxis)
@@ -42,17 +46,13 @@ struct TeleprompterSettingsView: View {
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 15)
-                    .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
+                    .background(.ultraThinMaterial)
                 } else {
-                    VStack {
-                        HStack {
-                            Spacer()
-                            BtnSettings()
-                                .padding(10)
-                                .id("BtnSettings")
-                        }
-                        
+                    HStack {
                         Spacer()
+                        BtnSettings()
+                            .padding(10)
+                            .id("BtnSettings")
                     }
                 }
             }

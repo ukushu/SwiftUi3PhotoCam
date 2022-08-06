@@ -60,6 +60,7 @@ extension TeleprompterView {
                             }
                     )
                     .padding(.horizontal, 7)
+                    .padding(.horizontal, model.marginsH)
             }
         }
         .onTapGesture(count: 2) { withAnimation{ editMode.toggle() } }

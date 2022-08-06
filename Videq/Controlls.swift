@@ -29,6 +29,16 @@ extension TeleprompterSettingsView {
         }
     }
     
+    func MarginsSlider() -> some View {
+        HStack {
+            Text(Image(systemName: "rectangle.fill"))
+            
+            BoundsSlider(min: 0, max: 200, value: $model.marginsH)
+            
+            Text(Image(systemName: "rectangle.split.3x1.fill"))
+        }
+    }
+    
     func TextSizeSlider() -> some View {
         HStack {
             Text("a")

@@ -6,6 +6,7 @@ class TeleprompterViewModel: ObservableObject {
     @Published var miniMode: Bool
     
     @Published var mirrorYAxis: Bool = false
+    @Published var marginsH: CGFloat = 0
     
     @Published var dragOffset: CGPoint = .zero
     @Published var position: CGPoint = CGPoint(x: 0, y: 60)

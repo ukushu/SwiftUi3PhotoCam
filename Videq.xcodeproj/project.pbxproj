@@ -209,6 +209,7 @@
 		1D61CCC8289D767300044AA2 /* MoreSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1DDC26BF289F0C2C0056ADED /* AppCoreClone */,
 				1D61CCCD289DE5C800044AA2 /* Ext */,
 				1D61CCC9289D768300044AA2 /* BoundsSlider.swift */,
 			);
@@ -232,6 +233,13 @@
 				1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */,
 			);
 			path = AppScenes;
+			sourceTree = "<group>";
+		};
+		1DDC26BF289F0C2C0056ADED /* AppCoreClone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppCoreClone;
 			sourceTree = "<group>";
 		};
 		1DDD318E289E122500FB4E22 /* DisplayScreenTouches */ = {
