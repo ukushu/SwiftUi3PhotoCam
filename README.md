@@ -1,4 +1,4 @@
-# SwiftUi3PhotoCam
+# videq
 
 Written in SwiftUI 3, so plist file is absent (plist is accessible in project settings)
 
