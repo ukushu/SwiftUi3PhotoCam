@@ -9,4 +9,6 @@ But you can hear when image is not captured - there is no "photo sound"
 
 VideoRecorder part is based on: https://www.youtube.com/watch?v=_GGDueorwEA
 
-new features ideas: https://www.youtube.com/watch?v=xIU_sWcMI00
+new features ideas: 
+https://www.youtube.com/watch?v=xIU_sWcMI00
+https://www.youtube.com/watch?v=1JqY75DJ_Ww
