@@ -10,14 +10,9 @@ struct MainAppView : View {
     var body: some View {
         VStack {
             if startSceenDisplay {
-                VStack{
-                    Image("StartScreenLogo")
-                        .resizable()
-                        .scaledToFit()
-                }
+                SplashScreenView()
             } else {
-                VideoCamView()
-                    .background(Color(red: 0, green: 0, blue: 0.01, opacity: 0.01))
+                MainMenuView()
             }
         }
         .transition(.scale)
@@ -29,6 +24,22 @@ struct MainAppView : View {
 ////////////////////
 ///HELPERS
 ////////////////////
+
+fileprivate struct SplashScreenView : View {
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            Image("StartScreenLogo")
+                .resizable()
+                .scaledToFit()
+            
+            Spacer()
+        }
+        .background(.white)
+    }
+}
+
 extension MainAppView {
     func splashScreenDisable() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {

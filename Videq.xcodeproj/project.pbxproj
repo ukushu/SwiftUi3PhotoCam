@@ -21,9 +21,13 @@
 		1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCE289DE5D400044AA2 /* ColorExt.swift */; };
 		1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD0289DFA9E00044AA2 /* Controlls.swift */; };
 		1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */; };
-		1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */; };
+		1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
 		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
+		1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */; };
+		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
+		1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* TelepromterView.swift */; };
+		1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */; };
 		1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318C289E120B00FB4E22 /* TouchView.swift */; };
 		1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318F289E124900FB4E22 /* Configuration.swift */; };
 		1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3191289E12D600FB4E22 /* Visualiser.swift */; };
@@ -81,8 +85,12 @@
 		1D61CCCE289DE5D400044AA2 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		1D61CCD0289DFA9E00044AA2 /* Controlls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controlls.swift; sourceTree = "<group>"; };
 		1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
-		1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamView.swift; sourceTree = "<group>"; };
+		1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterVideoCamView.swift; sourceTree = "<group>"; };
 		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedYet.swift; sourceTree = "<group>"; };
+		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		1DDC26BB289EF3130056ADED /* TelepromterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterView.swift; sourceTree = "<group>"; };
+		1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterSettingsView.swift; sourceTree = "<group>"; };
 		1DDD318C289E120B00FB4E22 /* TouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		1DDD318F289E124900FB4E22 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1DDD3191289E12D600FB4E22 /* Visualiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualiser.swift; sourceTree = "<group>"; };
@@ -131,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				1DDC26B4289E576C0056ADED /* ToDo.swift */,
+				1D3735C5289C6AE20076EF38 /* PCamApp.swift */,
 				1D61CCC8289D767300044AA2 /* MoreSwiftUI */,
 				1D3735C4289C6AE20076EF38 /* Videq */,
 				1D3735D5289C6AE40076EF38 /* VideqTests */,
@@ -153,10 +162,9 @@
 		1D3735C4289C6AE20076EF38 /* Videq */ = {
 			isa = PBXGroup;
 			children = (
-				1D3735C5289C6AE20076EF38 /* PCamApp.swift */,
 				1D3735C7289C6AE20076EF38 /* MainAppView.swift */,
-				1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */,
-				1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */,
+				1DDC26B9289EF0240056ADED /* MainMenuView.swift */,
+				1DDC26B6289EEF9C0056ADED /* AppScenes */,
 				1D61CCD0289DFA9E00044AA2 /* Controlls.swift */,
 				1DDD3195289E141D00FB4E22 /* Others */,
 				1DDD3198289E147A00FB4E22 /* ImportantControlls */,
@@ -216,6 +224,16 @@
 			path = Ext;
 			sourceTree = "<group>";
 		};
+		1DDC26B6289EEF9C0056ADED /* AppScenes */ = {
+			isa = PBXGroup;
+			children = (
+				1DDC26BB289EF3130056ADED /* TelepromterView.swift */,
+				1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */,
+				1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */,
+			);
+			path = AppScenes;
+			sourceTree = "<group>";
+		};
 		1DDD318E289E122500FB4E22 /* DisplayScreenTouches */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +257,7 @@
 		1DDD3198289E147A00FB4E22 /* ImportantControlls */ = {
 			isa = PBXGroup;
 			children = (
+				1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */,
 				1DDD3199289E148B00FB4E22 /* Teleprompter */,
 				1D01CEF7289CBBE4004ED83D /* Camera */,
 			);
@@ -250,6 +269,7 @@
 			children = (
 				1DDD319A289E14A800FB4E22 /* Teleprompter.swift */,
 				1DDD319C289E14B900FB4E22 /* TeleprompterViewModel.swift */,
+				1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */,
 			);
 			path = Teleprompter;
 			sourceTree = "<group>";
@@ -401,15 +421,19 @@
 				1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */,
 				1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */,
 				1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */,
+				1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */,
 				1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */,
 				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
+				1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */,
 				1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */,
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
+				1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */,
+				1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */,
 				1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */,
 				1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */,
-				1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */,
+				1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
 				1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */,
 			);

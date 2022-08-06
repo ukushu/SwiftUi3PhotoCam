@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-extension TeleprompterView {
+extension TeleprompterSettingsView {
     func SpeedSlider() -> some View {
         HStack {
             Text(Image(systemName: "tortoise"))
             
-            BoundsSlider(min: 0.7, max: 5, value: $telepVm.speed)
+            BoundsSlider(min: 0.7, max: 5, value: $model.speed)
             
             Text(Image(systemName: "hare"))
         }
@@ -23,7 +23,7 @@ extension TeleprompterView {
         HStack {
             Text(Image(systemName: "sun.and.horizon.fill"))
             
-            BoundsSlider(min: 0, max: 1, value: $telepVm.bgOpacity)
+            BoundsSlider(min: 0, max: 1, value: $model.bgOpacity)
             
             Text(Image(systemName: "moon.stars.fill"))
         }
@@ -34,7 +34,7 @@ extension TeleprompterView {
             Text("a")
                 .font(.system(size: 20))
             
-            BoundsSlider(min: 15, max: 45, value: $telepVm.textSize)
+            BoundsSlider(min: 15, max: 45, value: $model.textSize)
             
             Text("A")
                 .font(.system(size: 20))
@@ -42,7 +42,7 @@ extension TeleprompterView {
     }
     
     func BtnSettings() -> some View {
-        Button(action: { displaySettings.toggle() }) {
+        Button(action: { model.displaySettings.toggle() }) {
             Image(systemName: "gear")
                 .resizable()
                 .renderingMode(.template)

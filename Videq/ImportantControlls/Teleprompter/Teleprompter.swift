@@ -9,75 +9,69 @@ import Foundation
 import SwiftUI
 
 struct TeleprompterView: View {
-    @ObservedObject var telepVm: TeleprompterViewModel
+    @ObservedObject var model: TeleprompterViewModel
     
-    @State var displaySettings = false
     @State var editMode = false
     
     var body: some View {
         VStack(spacing:0) {
-            TeleprompterBodyView ()
-                .frame(height: 350, alignment: .top)
-            
-            SettingsView()
+            if model.mirrorYAxis {
+                TeleprompterBodyView()
+                    .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+            } else {
+                TeleprompterBodyView()
+            }
         }
-        .animation(.easeInOut, value: displaySettings)
         .onAppear() { autoScroll() }
     }
 }
 
 extension TeleprompterView {
     func TeleprompterBodyView() -> some View {
-        VStack {
+        VStack{
             if editMode {
-                VStack {
-                    TextEditor(text: $telepVm.text)
-                    
-                    TeleprompterEditModeBtnsPanel()
-                }
+                TextEditor(text: $model.text)
+                
+                TeleprompterEditModeBtnsPanel()
             } else {
-                Text(telepVm.text)
-                    .font(.system(size: telepVm.textSize))
-                    .frame(width: UIScreen.screenWidth - 7)
-                    .foregroundColor(telepVm.textColor)
+                Text(model.text)
+                    .font(.system(size: model.textSize))
+                    .foregroundColor(model.textColor)
                     .padding(.top, Globals.teleprompterSafeArea)
                     .padding(.bottom, 500)
                     .background(Color(red: 0, green: 0, blue: 0, opacity: 0.01))
                     .fixedSize(horizontal: false, vertical: true)
-                    .offset( x: 0, y: telepVm.position.y + telepVm.dragOffset.y )
+                    .offset( x: 0, y: model.position.y + model.dragOffset.y )
                     .gesture(
                         DragGesture()
                             .onChanged { gesture in
-                                telepVm.userDragging = true
-                                telepVm.dragOffset.y = gesture.translation.height
+                                model.userDragging = true
+                                model.dragOffset.y = gesture.translation.height
                             }
                             .onEnded { gesture in
-                                telepVm.userDragging = false
-                                telepVm.position.y = telepVm.position.y + gesture.translation.height
+                                model.userDragging = false
+                                model.position.y = model.position.y + gesture.translation.height
                                 
-                                if telepVm.position.y > Globals.teleprompterSafeArea {
-                                    telepVm.position.y = Globals.teleprompterSafeArea
+                                if model.position.y > Globals.teleprompterSafeArea {
+                                    model.position.y = Globals.teleprompterSafeArea
                                 }
                                 
-                                telepVm.dragOffset = .zero
+                                model.dragOffset = .zero
                             }
                     )
                     .padding(.horizontal, 7)
             }
         }
-        .frame(height: 350, alignment: .top)
-        .clipShape(Rectangle())
-        .background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: telepVm.bgOpacity))
         .onTapGesture(count: 2) { withAnimation{ editMode.toggle() } }
         .animation(.easeInOut, value: editMode)
     }
     
     func TeleprompterEditModeBtnsPanel() -> some View {
         HStack (spacing: 40){
-            Button(action: { editMode.toggle(); telepVm.position.y = Globals.teleprompterSafeArea } )
+            Button(action: { editMode.toggle(); model.position.y = Globals.teleprompterSafeArea } )
                 { SuperBtnLabel(text: "Close", icon: "xmark.circle.fill") }
             
-            Button(action: { telepVm.text = "" } )
+            Button(action: { model.text = "" } )
                 { SuperBtnLabel(text: "Clear", icon: "doc") }
             
             Button(action: { pasteboardPaste() } )
@@ -87,45 +81,22 @@ extension TeleprompterView {
     }
 }
 
-extension TeleprompterView {
+extension View {
+    func teleprompterMini(bgOpacity: CGFloat) -> some View {
+        self.background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: bgOpacity))
+            .frame(height: 350, alignment: .top)
+            .clipShape(Rectangle())
+            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+    }
     
-    @ViewBuilder
-    func SettingsView() -> some View {
-        if displaySettings {
-            VStack {
-                VStack {
-                    HStack{
-                        SpeedSlider()
-                        BtnSettings()
-                            .id("BtnSettings")
-                            .padding(.leading, 10)
-                    }
-                    
-                    HStack {
-                        TextSizeSlider()
-                        
-                        ColorPicker(selection: $telepVm.textColor) { EmptyView() }
-                            .frame(width: 25)
-                            .padding(.trailing, 5)
-                            .padding(.leading, 10)
-                    }
-                    
-                    BgOpacitySlider()
-                }
-            }
-            .padding(.vertical)
-            .padding(.horizontal, 15)
-            .background(Color(red: 0, green: 0, blue: 0, opacity: 0.7))
-        } else {
-            HStack {
-                Spacer()
-                BtnSettings()
-                    .padding(10)
-                    .id("BtnSettings")
-            }
-        }
+    func teleprompterMaxi(height: CGFloat) -> some View  {
+        self.frame(height: height, alignment: .top)
+            .clipShape(Rectangle())
     }
 }
+
 
 struct SuperBaseBtnLabel : View {
     let text: String
@@ -172,8 +143,8 @@ extension TeleprompterView {
     func autoScroll() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
-                if telepVm.position.y < Globals.teleprompterSafeArea - 10 && !telepVm.userDragging {
-                    telepVm.position.y -= telepVm.speed
+                if model.position.y < Globals.teleprompterSafeArea - 10 && !model.userDragging {
+                    model.position.y -= model.speed
                 }
             }
             
@@ -191,10 +162,10 @@ extension UIScreen {
 extension TeleprompterView {
     func pasteboardPaste() {
         if let str = UIPasteboard.general.string{
-            if telepVm.text.count > 0 {
-                telepVm.text += "\r\(str)"
+            if model.text.count > 0 {
+                model.text += "\r\(str)"
             } else {
-                telepVm.text = str
+                model.text = str
             }
         }
     }

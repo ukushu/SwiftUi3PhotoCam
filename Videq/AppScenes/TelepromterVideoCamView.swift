@@ -3,9 +3,9 @@ import AVFoundation
 import Foundation
 import Introspect
 
-struct VideoCamView: View {
+struct TelepromterVideoCamView: View {
     @StateObject var camera = CameraModel()
-    @ObservedObject var telepVm = TeleprompterViewModel()
+    @ObservedObject var telepVm = TeleprompterViewModel(miniMode: true)
     
     var body: some View {
         ZStack {
@@ -13,7 +13,8 @@ struct VideoCamView: View {
                 .environmentObject(camera)
             
             VStack {
-                TeleprompterView(telepVm: telepVm)
+                TeleprompterView(model: telepVm)
+                    .teleprompterMini(bgOpacity: telepVm.bgOpacity)
                 
                 Spacer()
                 
