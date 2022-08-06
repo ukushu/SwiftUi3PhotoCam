@@ -19,8 +19,17 @@
 		1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCC9289D768300044AA2 /* BoundsSlider.swift */; };
 		1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCB289DE2EB00044AA2 /* PublishedExt.swift */; };
 		1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCE289DE5D400044AA2 /* ColorExt.swift */; };
+		1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD0289DFA9E00044AA2 /* Controlls.swift */; };
+		1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */; };
 		1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
+		1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318C289E120B00FB4E22 /* TouchView.swift */; };
+		1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318F289E124900FB4E22 /* Configuration.swift */; };
+		1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3191289E12D600FB4E22 /* Visualiser.swift */; };
+		1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3193289E131500FB4E22 /* UIWindow+Swizzle.swift */; };
+		1DDD3197289E143800FB4E22 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3196289E143800FB4E22 /* Globals.swift */; };
+		1DDD319B289E14A800FB4E22 /* Teleprompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD319A289E14A800FB4E22 /* Teleprompter.swift */; };
+		1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD319C289E14B900FB4E22 /* TeleprompterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +78,16 @@
 		1D61CCC9289D768300044AA2 /* BoundsSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundsSlider.swift; sourceTree = "<group>"; };
 		1D61CCCB289DE2EB00044AA2 /* PublishedExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishedExt.swift; sourceTree = "<group>"; };
 		1D61CCCE289DE5D400044AA2 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
+		1D61CCD0289DFA9E00044AA2 /* Controlls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controlls.swift; sourceTree = "<group>"; };
+		1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCamView.swift; sourceTree = "<group>"; };
+		1DDD318C289E120B00FB4E22 /* TouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
+		1DDD318F289E124900FB4E22 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		1DDD3191289E12D600FB4E22 /* Visualiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualiser.swift; sourceTree = "<group>"; };
+		1DDD3193289E131500FB4E22 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
+		1DDD3196289E143800FB4E22 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		1DDD319A289E14A800FB4E22 /* Teleprompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teleprompter.swift; sourceTree = "<group>"; };
+		1DDD319C289E14B900FB4E22 /* TeleprompterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +153,12 @@
 				1D3735C5289C6AE20076EF38 /* PCamApp.swift */,
 				1D3735C7289C6AE20076EF38 /* MainAppView.swift */,
 				1D95CB6B289CBF5A000557E5 /* VideoCamView.swift */,
-				1D01CEF7289CBBE4004ED83D /* Camera */,
+				1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */,
+				1D61CCD0289DFA9E00044AA2 /* Controlls.swift */,
+				1DDD3198289E147A00FB4E22 /* ImportantControlls */,
 				1D3735C9289C6AE40076EF38 /* Assets.xcassets */,
 				1D3735CB289C6AE40076EF38 /* Preview Content */,
+				1DDD3195289E141D00FB4E22 /* Others */,
 			);
 			path = PCam;
 			sourceTree = "<group>";
@@ -190,6 +211,44 @@
 				1D61CCCE289DE5D400044AA2 /* ColorExt.swift */,
 			);
 			path = Ext;
+			sourceTree = "<group>";
+		};
+		1DDD318E289E122500FB4E22 /* DisplayScreenTouches */ = {
+			isa = PBXGroup;
+			children = (
+				1DDD318C289E120B00FB4E22 /* TouchView.swift */,
+				1DDD318F289E124900FB4E22 /* Configuration.swift */,
+				1DDD3191289E12D600FB4E22 /* Visualiser.swift */,
+				1DDD3193289E131500FB4E22 /* UIWindow+Swizzle.swift */,
+			);
+			path = DisplayScreenTouches;
+			sourceTree = "<group>";
+		};
+		1DDD3195289E141D00FB4E22 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1DDD318E289E122500FB4E22 /* DisplayScreenTouches */,
+				1DDD3196289E143800FB4E22 /* Globals.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		1DDD3198289E147A00FB4E22 /* ImportantControlls */ = {
+			isa = PBXGroup;
+			children = (
+				1DDD3199289E148B00FB4E22 /* Teleprompter */,
+				1D01CEF7289CBBE4004ED83D /* Camera */,
+			);
+			path = ImportantControlls;
+			sourceTree = "<group>";
+		};
+		1DDD3199289E148B00FB4E22 /* Teleprompter */ = {
+			isa = PBXGroup;
+			children = (
+				1DDD319A289E14A800FB4E22 /* Teleprompter.swift */,
+				1DDD319C289E14B900FB4E22 /* TeleprompterViewModel.swift */,
+			);
+			path = Teleprompter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,10 +391,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDD319B289E14A800FB4E22 /* Teleprompter.swift in Sources */,
+				1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */,
+				1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */,
 				1D01CEF4289CA0E2004ED83D /* CameraView.swift in Sources */,
 				1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */,
 				1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */,
+				1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */,
+				1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */,
 				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
+				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
+				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
+				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
+				1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */,
 				1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */,
 				1D95CB6C289CBF5A000557E5 /* VideoCamView.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
