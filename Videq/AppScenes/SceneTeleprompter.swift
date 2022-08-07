@@ -20,6 +20,8 @@ struct SceneTeleprompter: View {
             
             SettingsBtn()
             
+            BackToMainMenuBtn()
+            
             VStack {
                 Spacer()
                 

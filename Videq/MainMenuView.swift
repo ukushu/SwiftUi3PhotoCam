@@ -2,31 +2,17 @@ import Foundation
 import SwiftUI
 
 struct MainMenuView : View {
-    @State var scene = AppScene.splashScreen
+    @ObservedObject var theApp = TheApp.shared
     @State var emailSheetDisplayed: Bool = false
     
     var body: some View {
-        ZStack {
-            MenuBody()
-            
-            if (scene != .splashScreen && scene != .mainMenu) {
-                VStack {
-                    HStack {
-                        BtnBackSmall() { scene = .mainMenu }
-                            .padding(EdgeInsets(top: 5, leading: 15, bottom: 0, trailing: 0))
-                        
-                        Spacer()
-                    }
-                    Spacer()
-                }
-            }
-        }
+        MenuBody()
     }
     
     @ViewBuilder
     func MenuBody() -> some View {
         VStack {
-            switch scene {
+            switch theApp.scene {
             case .mainMenu:
                 MainMenuView()
             case .teleprompterCam:
@@ -42,7 +28,7 @@ struct MainMenuView : View {
         }
         .transition(.slide)
         .onAppear { splashScreenDisableIfNeeded() }
-        .animation(.easeInOut, value: scene)
+        .animation(.easeInOut, value: theApp.scene)
         .preferredColorScheme(.dark)
     }
     
@@ -51,19 +37,19 @@ struct MainMenuView : View {
             Text("Choose app mode:")
             
             HStack {
-                Button(action: { scene = .reelsCam } ) { Text("Reels/Pause Camera") }
+                Button(action: { theApp.scene = .reelsCam } ) { Text("Reels/Pause Camera") }
                 
                 HelpButt() { HelpReelsView() }
             }
             
             HStack {
-                Button(action: { scene = .teleprompter } ) { Text("Teleprompter") }
+                Button(action: { theApp.scene = .teleprompter } ) { Text("Teleprompter") }
                 
                 HelpButt() { HelpTeleprompterView() }
             }
             
             HStack {
-                Button(action: { scene = .teleprompterCam } ) { Text("Teleprompter + Camera") }
+                Button(action: { theApp.scene = .teleprompterCam } ) { Text("Teleprompter + Camera") }
                 
                 HelpButt() { HelpTeleprompterPlusCamView() }
             }
@@ -72,6 +58,16 @@ struct MainMenuView : View {
         }
     }
 }
+
+public class TheApp: ObservableObject {
+    static let shared = TheApp()
+    
+    private init() { }
+    
+    @Published var scene = AppScene.splashScreen
+}
+
+
 
 
 ////////////////////
@@ -133,12 +129,12 @@ struct HelpTeleprompterPlusCamView: View {
 }
 
 
-extension MainMenuView {
-    func NotImplementedYet() -> some  View {
+struct NotImplementedYet: View {
+    var body: some  View {
         VStack(spacing: 50) {
             Text("Not implemented Yet")
             
-            Button(action: { scene = .mainMenu } ) { Text("Back") }
+            Button(action: { TheApp.shared.scene = .mainMenu } ) { Text("Back") }
         }
     }
 }
@@ -158,11 +154,10 @@ enum AppScene {
 ////////////////////
 
 fileprivate extension MainMenuView {
-
     func splashScreenDisableIfNeeded() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            if scene == .splashScreen {
-                scene = .mainMenu
+            if theApp.scene == .splashScreen {
+                theApp.scene = .mainMenu
             }
         }
     }

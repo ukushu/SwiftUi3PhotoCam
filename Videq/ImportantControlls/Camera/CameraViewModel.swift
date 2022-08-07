@@ -108,25 +108,25 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
             return AVURLAsset(url: url)
         }
         
-        self.previewURL = nil
+        //self.previewURL = nil
         
-        mergeVideos(assets: assets) { exporter in
-            exporter.exportAsynchronously {
-                if exporter.status == .failed {
-                    // HANDLE error
-                    print(exporter.error!)
-                } else {
-                    if let finalURL = exporter.outputURL {
-                        print("EXPORT SUCCESS: \(finalURL)")
-                        
-                        DispatchQueue.main.async {
-                            self.previewURL = finalURL
-                        }
-                    }
-                }
-            }
-            
-        }
+//        mergeVideos(assets: assets) { exporter in
+//            exporter.exportAsynchronously {
+//                if exporter.status == .failed {
+//                    // HANDLE error
+//                    print(exporter.error!)
+//                } else {
+//                    if let finalURL = exporter.outputURL {
+//                        print("EXPORT SUCCESS: \(finalURL)")
+//                        
+//                        DispatchQueue.main.async {
+//                            self.previewURL = finalURL
+//                        }
+//                    }
+//                }
+//            }
+//            
+//        }
     }
     
     func mergeVideos(assets: [AVURLAsset], completion: @escaping (_ exporter: AVAssetExportSession) -> () ) {

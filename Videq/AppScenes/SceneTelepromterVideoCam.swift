@@ -26,6 +26,8 @@ struct SceneTelepromterVideoCam: View {
             
             HeaderBgLine()
             
+            BackToMainMenuBtn()
+            
             SettingsBtns()
             
             VStack {
@@ -35,10 +37,7 @@ struct SceneTelepromterVideoCam: View {
             }
         }
         .overlay{
-            if let url = camera.previewURL, camera.showPreview {
-                VideoPreview(url: url, showPreview: $camera.showPreview)
-                    .transition(.move (edge:.trailing))
-            }
+            
         }
         .animation(.easeInOut, value: camera.showPreview)
     }

@@ -147,3 +147,39 @@ struct BtnVideoPreview: View {
         camera.showPreview.toggle()
     }
 }
+
+struct BackToMainMenuBtn : View {
+    var body: some View {
+        BackBtn { TheApp.shared.scene = .mainMenu }
+    }
+}
+
+struct BackBtn : View {
+    var action: () -> ()
+    
+    var body: some View {
+        VStack {
+            HStack {
+                BtnBackSmall() { action() }
+                    .padding(EdgeInsets(top: 5, leading: 15, bottom: 0, trailing: 0))
+                
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+}
+
+fileprivate struct BtnBackSmall: View {
+    var action: () -> ()
+    
+    var body: some View {
+        Button(action: { action() }) {
+            Image(systemName: "arrowshape.turn.up.backward.fill")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(Color.orange)
+                .frame(width: 23)
+        }
+    }
+}

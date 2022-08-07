@@ -10,47 +10,25 @@ import AVKit
 import SwiftUI
 
 struct VideoPreview: View {
-    var url: URL
+    var url: URL?
     @Binding var showPreview: Bool
     
-    var body: some View{
-        GeometryReader{proxy in
-            VideoPlayer(player : AVPlayer(url: url))
-                .aspectRatio (contentMode :.fill)
-                .frame (width : proxy.size.width, height : proxy.size.height)
-                .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                .overlay(alignment: .topLeading) {
-                    BtnBack(showPreview: $showPreview)
+    var body: some View {
+        ZStack{
+            if let url = url, showPreview {
+                GeometryReader{ proxy in
+                    VideoPlayer(player: AVPlayer(url: url))
+                        .aspectRatio (contentMode :.fit)
+                        .frame (width : proxy.size.width, height : proxy.size.height)
                 }
-        }
-    }
-}
-
-struct BtnBack: View {
-    @Binding var showPreview: Bool
-    
-    var body: some View {
-        Button { showPreview.toggle() } label: {
-            Label {
-                Text ("Back")
-            } icon: {
-                Image (systemName : "chevron.left")
-                    .foregroundColor(.white)
+            } else {
+                Text("Failed to display preview")
             }
+            
+            HeaderBgLine()
+            
+            BackBtn{ showPreview.toggle() }
         }
-    }
-}
-
-struct BtnBackSmall: View {
-    var action: () -> ()
-    
-    var body: some View {
-        Button(action: { action() }) {
-            Image(systemName: "arrowshape.turn.up.backward.fill")
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(Color.orange)
-                .frame(width: 23)
-        }
+        .background(Color.black)
     }
 }
