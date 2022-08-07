@@ -36,7 +36,16 @@ struct TeleprompterSettingsView: View {
                             MarginsSlider()
                             
                             if !model.miniMode {
-                                Toggle("Mirror by Y axis", isOn: $model.mirrorYAxis)
+                                HStack{
+                                    HStack(spacing: 0){
+                                        Image(systemName: "triangle.lefthalf.filled")
+                                        Toggle( "", isOn: $model.mirrorYAxis)
+                                    }
+                                    .frame(width: 40)
+                                    
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 25)
                             }
                         }
                     }
