@@ -107,7 +107,7 @@ extension String {
 
 struct HelpReelsView: View {
     var body: some View {
-        Text("Give you ability to record lot of videos and combine them into single one")
+        Text("Give you ability to record set of videos and combine them into single one")
     }
 }
 
@@ -127,7 +127,7 @@ struct HelpTeleprompterView: View {
 struct HelpTeleprompterPlusCamView: View {
     var body: some View {
         VStack(spacing: 40) {
-            Text("Created for use phone as videorecorder and as teleprompter both")
+            Text("Created for use phone as videorecorder and as teleprompter at the same time")
         }
     }
 }
