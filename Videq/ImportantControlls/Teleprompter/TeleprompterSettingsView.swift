@@ -58,5 +58,4 @@ struct TeleprompterSettingsView: View {
             }
             .animation(.easeInOut, value: model.displaySettings)
     }
-    
 }

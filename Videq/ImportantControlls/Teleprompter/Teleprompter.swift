@@ -11,6 +11,8 @@ import SwiftUI
 struct TeleprompterView: View {
     @ObservedObject var model: TeleprompterViewModel
     
+    @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
+    
     @State var editMode = false
     
     var body: some View {
@@ -63,8 +65,18 @@ extension TeleprompterView {
                     .padding(.horizontal, model.marginsH)
             }
         }
-        .onTapGesture(count: 2) { withAnimation{ editMode.toggle() } }
+        .gesture(
+            SimultaneousGesture(TapGesture(count: 1), TapGesture(count: 2))
+                .onEnded { gestureValue in
+                    if gestureValue.second != nil {
+                        editMode.toggle()
+                    } else if gestureValue.first != nil {
+                        model.displaySettings = false
+                    }
+                }
+        )
         .animation(.easeInOut, value: editMode)
+        .padding(.bottom, keyboardHeightHelper.keyboardHeight)
     }
     
     func TeleprompterEditModeBtnsPanel() -> some View {
@@ -78,7 +90,7 @@ extension TeleprompterView {
             Button(action: { pasteboardPaste() } )
                 { SuperBtnLabel(text: "Paste", icon: "arrowshape.turn.up.left.fill") }
         }
-        .padding(.bottom, 10)
+        .padding(.bottom, 20)
     }
 }
 

@@ -23,12 +23,22 @@
 		1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */; };
 		1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
+		1DA39BC0289F34790098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BBE289F34790098C7BB /* Localizable.strings */; };
+		1DA39BC4289F34EF0098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BC2289F34EF0098C7BB /* Localizable.strings */; };
+		1DA39BC8289F350C0098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BC6289F350C0098C7BB /* Localizable.strings */; };
+		1DA39BCC289F358E0098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BCA289F358E0098C7BB /* Localizable.strings */; };
+		1DA39BD0289F35B60098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BCE289F35B60098C7BB /* Localizable.strings */; };
+		1DA39BD4289F36F10098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BD2289F36F10098C7BB /* Localizable.strings */; };
+		1DA39BD8289F3E350098C7BB /* PopoverButt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BD7289F3E350098C7BB /* PopoverButt.swift */; };
+		1DA39BDA289F3E6A0098C7BB /* HelpButt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */; };
 		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
 		1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */; };
 		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
 		1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* TelepromterView.swift */; };
 		1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */; };
 		1DDC26C3289F15910056ADED /* fillParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26C2289F15910056ADED /* fillParent.swift */; };
+		1DDC26C5289F24B30056ADED /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26C4289F24B30056ADED /* KeyboardHelper.swift */; };
+		1DDC26CD289F34350056ADED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DDC26CB289F34350056ADED /* Localizable.strings */; };
 		1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318C289E120B00FB4E22 /* TouchView.swift */; };
 		1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD318F289E124900FB4E22 /* Configuration.swift */; };
 		1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDD3191289E12D600FB4E22 /* Visualiser.swift */; };
@@ -87,12 +97,22 @@
 		1D61CCD0289DFA9E00044AA2 /* Controlls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controlls.swift; sourceTree = "<group>"; };
 		1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
 		1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterVideoCamView.swift; sourceTree = "<group>"; };
+		1DA39BBF289F34790098C7BB /* ge */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ge; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BC3289F34EF0098C7BB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BC7289F350C0098C7BB /* jp */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = jp; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BCB289F358E0098C7BB /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BCF289F35B60098C7BB /* ua */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ua; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BD3289F36F10098C7BB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
+		1DA39BD7289F3E350098C7BB /* PopoverButt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverButt.swift; sourceTree = "<group>"; };
+		1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButt.swift; sourceTree = "<group>"; };
 		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedYet.swift; sourceTree = "<group>"; };
 		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		1DDC26BB289EF3130056ADED /* TelepromterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterView.swift; sourceTree = "<group>"; };
 		1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterSettingsView.swift; sourceTree = "<group>"; };
 		1DDC26C2289F15910056ADED /* fillParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fillParent.swift; sourceTree = "<group>"; };
+		1DDC26C4289F24B30056ADED /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		1DDC26CC289F34350056ADED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		1DDD318C289E120B00FB4E22 /* TouchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
 		1DDD318F289E124900FB4E22 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1DDD3191289E12D600FB4E22 /* Visualiser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visualiser.swift; sourceTree = "<group>"; };
@@ -144,6 +164,7 @@
 				1D3735C5289C6AE20076EF38 /* PCamApp.swift */,
 				1D61CCC8289D767300044AA2 /* MoreSwiftUI */,
 				1D3735C4289C6AE20076EF38 /* Videq */,
+				1DDC26C6289F33930056ADED /* Locals */,
 				1D3735D5289C6AE40076EF38 /* VideqTests */,
 				1D3735DF289C6AE40076EF38 /* VideqUITests */,
 				1D3735C3289C6AE20076EF38 /* Products */,
@@ -214,6 +235,7 @@
 				1DDC26BF289F0C2C0056ADED /* AppCoreClone */,
 				1D61CCCD289DE5C800044AA2 /* Ext */,
 				1D61CCC9289D768300044AA2 /* BoundsSlider.swift */,
+				1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -225,6 +247,54 @@
 				1D61CCCE289DE5D400044AA2 /* ColorExt.swift */,
 			);
 			path = Ext;
+			sourceTree = "<group>";
+		};
+		1DA39BBD289F34550098C7BB /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BBE289F34790098C7BB /* Localizable.strings */,
+			);
+			path = de.lproj;
+			sourceTree = "<group>";
+		};
+		1DA39BC1289F34D40098C7BB /* it.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BC2289F34EF0098C7BB /* Localizable.strings */,
+			);
+			path = it.lproj;
+			sourceTree = "<group>";
+		};
+		1DA39BC5289F34FB0098C7BB /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BC6289F350C0098C7BB /* Localizable.strings */,
+			);
+			path = ja.lproj;
+			sourceTree = "<group>";
+		};
+		1DA39BC9289F35760098C7BB /* pl.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BCA289F358E0098C7BB /* Localizable.strings */,
+			);
+			path = pl.lproj;
+			sourceTree = "<group>";
+		};
+		1DA39BCD289F359A0098C7BB /* uk.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BCE289F35B60098C7BB /* Localizable.strings */,
+			);
+			path = uk.lproj;
+			sourceTree = "<group>";
+		};
+		1DA39BD1289F36D70098C7BB /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BD2289F36F10098C7BB /* Localizable.strings */,
+			);
+			path = ru.lproj;
 			sourceTree = "<group>";
 		};
 		1DDC26B6289EEF9C0056ADED /* AppScenes */ = {
@@ -241,8 +311,31 @@
 			isa = PBXGroup;
 			children = (
 				1DDC26C2289F15910056ADED /* fillParent.swift */,
+				1DA39BD7289F3E350098C7BB /* PopoverButt.swift */,
 			);
 			path = AppCoreClone;
+			sourceTree = "<group>";
+		};
+		1DDC26C6289F33930056ADED /* Locals */ = {
+			isa = PBXGroup;
+			children = (
+				1DA39BD1289F36D70098C7BB /* ru.lproj */,
+				1DA39BCD289F359A0098C7BB /* uk.lproj */,
+				1DA39BC9289F35760098C7BB /* pl.lproj */,
+				1DA39BC5289F34FB0098C7BB /* ja.lproj */,
+				1DA39BC1289F34D40098C7BB /* it.lproj */,
+				1DA39BBD289F34550098C7BB /* de.lproj */,
+				1DDC26CA289F34110056ADED /* fr.lproj */,
+			);
+			path = Locals;
+			sourceTree = "<group>";
+		};
+		1DDC26CA289F34110056ADED /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1DDC26CB289F34350056ADED /* Localizable.strings */,
+			);
+			path = fr.lproj;
 			sourceTree = "<group>";
 		};
 		1DDD318E289E122500FB4E22 /* DisplayScreenTouches */ = {
@@ -278,6 +371,7 @@
 		1DDD3199289E148B00FB4E22 /* Teleprompter */ = {
 			isa = PBXGroup;
 			children = (
+				1DDC26C4289F24B30056ADED /* KeyboardHelper.swift */,
 				1DDD319A289E14A800FB4E22 /* Teleprompter.swift */,
 				1DDD319C289E14B900FB4E22 /* TeleprompterViewModel.swift */,
 				1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */,
@@ -378,6 +472,13 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
+				pl,
+				fr,
+				de,
+				ja,
+				it,
+				ru,
 			);
 			mainGroup = 1D3735B9289C6AE20076EF38;
 			packageReferences = (
@@ -399,7 +500,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DA39BC4289F34EF0098C7BB /* Localizable.strings in Resources */,
+				1DA39BC8289F350C0098C7BB /* Localizable.strings in Resources */,
 				1D3735CD289C6AE40076EF38 /* Preview Assets.xcassets in Resources */,
+				1DA39BCC289F358E0098C7BB /* Localizable.strings in Resources */,
+				1DA39BD4289F36F10098C7BB /* Localizable.strings in Resources */,
+				1DA39BC0289F34790098C7BB /* Localizable.strings in Resources */,
+				1DDC26CD289F34350056ADED /* Localizable.strings in Resources */,
+				1DA39BD0289F35B60098C7BB /* Localizable.strings in Resources */,
 				1D3735CA289C6AE40076EF38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDC26C5289F24B30056ADED /* KeyboardHelper.swift in Sources */,
 				1DDD319B289E14A800FB4E22 /* Teleprompter.swift in Sources */,
 				1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */,
 				1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */,
@@ -441,11 +550,13 @@
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
+				1DA39BDA289F3E6A0098C7BB /* HelpButt.swift in Sources */,
 				1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */,
 				1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */,
 				1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */,
 				1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */,
 				1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */,
+				1DA39BD8289F3E350098C7BB /* PopoverButt.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
 				1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */,
 			);
@@ -482,6 +593,65 @@
 			targetProxy = 1D3735DD289C6AE40076EF38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1DA39BBE289F34790098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BBF289F34790098C7BB /* ge */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DA39BC2289F34EF0098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BC3289F34EF0098C7BB /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DA39BC6289F350C0098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BC7289F350C0098C7BB /* jp */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DA39BCA289F358E0098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BCB289F358E0098C7BB /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DA39BCE289F35B60098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BCF289F35B60098C7BB /* ua */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DA39BD2289F36F10098C7BB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DA39BD3289F36F10098C7BB /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1DDC26CB289F34350056ADED /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDC26CC289F34350056ADED /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D3735E4289C6AE40076EF38 /* Debug */ = {

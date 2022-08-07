@@ -32,7 +32,11 @@ struct MainMenuView : View {
         VStack(spacing: 50) {
             Text("Choose app mode:")
             
-            Button(action: { scene = .reelsCam } ) { Text("Reels/Pause Camera") }
+            HStack {
+                Button(action: { scene = .reelsCam } ) { Text("Reels/Pause Camera") }
+                
+                HelpButt() { Text("Give you ability to record lot of videos and combine them into single one") }
+            }
             
             Button(action: { scene = .teleprompter } ) { Text("Teleprompter") }
             
