@@ -5,6 +5,25 @@ struct MainMenuView : View {
     @State var scene = AppScene.splashScreen
     
     var body: some View {
+        ZStack {
+            MenuBody()
+            
+            if (scene != .splashScreen && scene != .mainMenu) {
+                VStack {
+                    HStack {
+                        BtnBackSmall() { scene = .mainMenu }
+                            .padding(EdgeInsets(top: 5, leading: 15, bottom: 0, trailing: 0))
+                        
+                        Spacer()
+                    }
+                    Spacer()
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func MenuBody() -> some View {
         VStack {
             switch scene {
             case .mainMenu:

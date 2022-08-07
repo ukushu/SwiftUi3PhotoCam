@@ -17,12 +17,8 @@ struct TeleprompterSettingsView: View {
                 if model.displaySettings {
                     VStack {
                         VStack {
-                            HStack{
-                                SpeedSlider()
-                                BtnSettings()
-                                    .id("BtnSettings")
-                                    .padding(.leading, 10)
-                            }
+                            SpeedSlider()
+                                .padding(.trailing, 50)
                             
                             HStack {
                                 TextSizeSlider()
@@ -46,14 +42,7 @@ struct TeleprompterSettingsView: View {
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 15)
-                    .background(.ultraThinMaterial)
-                } else {
-                    HStack {
-                        Spacer()
-                        BtnSettings()
-                            .padding(10)
-                            .id("BtnSettings")
-                    }
+                    .background(isMini ? .ultraThickMaterial : .ultraThinMaterial)
                 }
             }
             .animation(.easeInOut, value: model.displaySettings)

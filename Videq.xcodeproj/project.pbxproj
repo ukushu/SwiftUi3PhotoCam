@@ -31,6 +31,7 @@
 		1DA39BD4289F36F10098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BD2289F36F10098C7BB /* Localizable.strings */; };
 		1DA39BD8289F3E350098C7BB /* PopoverButt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BD7289F3E350098C7BB /* PopoverButt.swift */; };
 		1DA39BDA289F3E6A0098C7BB /* HelpButt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */; };
+		1DA39BDC289F66CD0098C7BB /* HeaderBgLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */; };
 		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
 		1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */; };
 		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
@@ -105,6 +106,7 @@
 		1DA39BD3289F36F10098C7BB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = Localizable.strings; sourceTree = "<group>"; };
 		1DA39BD7289F3E350098C7BB /* PopoverButt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverButt.swift; sourceTree = "<group>"; };
 		1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpButt.swift; sourceTree = "<group>"; };
+		1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBgLine.swift; sourceTree = "<group>"; };
 		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedYet.swift; sourceTree = "<group>"; };
 		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				1D61CCCD289DE5C800044AA2 /* Ext */,
 				1D61CCC9289D768300044AA2 /* BoundsSlider.swift */,
 				1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */,
+				1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */,
 				1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */,
 				1DDC26C3289F15910056ADED /* fillParent.swift in Sources */,
+				1DA39BDC289F66CD0098C7BB /* HeaderBgLine.swift in Sources */,
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,

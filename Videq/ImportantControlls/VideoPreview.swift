@@ -40,3 +40,17 @@ struct BtnBack: View {
         }
     }
 }
+
+struct BtnBackSmall: View {
+    var action: () -> ()
+    
+    var body: some View {
+        Button(action: { action() }) {
+            Image(systemName: "arrowshape.turn.up.backward.fill")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(Color.orange)
+                .frame(width: 23)
+        }
+    }
+}

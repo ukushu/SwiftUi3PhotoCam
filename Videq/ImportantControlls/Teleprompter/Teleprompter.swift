@@ -97,7 +97,7 @@ extension TeleprompterView {
 extension View {
     func teleprompterMini(bgOpacity: CGFloat) -> some View {
         self.background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: bgOpacity))
-            .frame(height: 350, alignment: .top)
+            .frame(height: UIScreen.screenHeight/3*1.6, alignment: .top)
             .clipShape(Rectangle())
             .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
             .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )

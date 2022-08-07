@@ -16,6 +16,10 @@ struct TeleprompterSceneView: View {
             TeleprompterView(model: model)
                 .teleprompterMaxi(height: UIScreen.screenHeight)
             
+            HeaderBgLine()
+            
+            SettingsBtn()
+            
             VStack {
                 Spacer()
                 
@@ -24,5 +28,20 @@ struct TeleprompterSceneView: View {
             }
         }
         .background(Color.black)
+    }
+}
+
+extension TeleprompterSceneView {
+    func SettingsBtn() -> some View {
+        VStack {
+            HStack {
+                Spacer()
+                
+                TeleprompterSettingsBtn(displaySettings: $model.displaySettings)
+                    .padding(.trailing, 15)
+                    .padding(.top, 5)
+            }
+            Spacer()
+        }
     }
 }

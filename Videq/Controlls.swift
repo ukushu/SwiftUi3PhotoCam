@@ -59,9 +59,13 @@ extension TeleprompterSettingsView {
                 .frame(width: Globals.sliderIconWidth, alignment: .center)
         }
     }
+}
+
+struct TeleprompterSettingsBtn: View {
+    @Binding var displaySettings: Bool
     
-    func BtnSettings() -> some View {
-        Button(action: { model.displaySettings.toggle() }) {
+    var body: some View {
+        Button(action: { displaySettings.toggle() }) {
             Image(systemName: "gear")
                 .resizable()
                 .renderingMode(.template)

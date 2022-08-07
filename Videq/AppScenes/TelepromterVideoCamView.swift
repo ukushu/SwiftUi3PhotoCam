@@ -29,6 +29,16 @@ struct TelepromterVideoCamView: View {
                 }
                 .padding(.bottom, 30)
             }
+            
+            HeaderBgLine()
+            
+            SettingsBtn()
+            
+            VStack {
+                Spacer()
+                
+                TeleprompterSettingsView(model: telepVm, isMini: false)
+            }
         }
         .overlay{
             if let url = camera.previewURL, camera.showPreview {
@@ -37,5 +47,20 @@ struct TelepromterVideoCamView: View {
             }
         }
         .animation(.easeInOut, value: camera.showPreview)
+    }
+}
+
+extension TelepromterVideoCamView {
+    func SettingsBtn() -> some View {
+        VStack {
+            HStack {
+                Spacer()
+                
+                TeleprompterSettingsBtn(displaySettings: $telepVm.displaySettings)
+                    .padding(.trailing, 15)
+                    .padding(.top, 5)
+            }
+            Spacer()
+        }
     }
 }
