@@ -14,7 +14,7 @@ struct TelepromterVideoCamView: View {
             
             VStack {
                 TeleprompterView(model: telepVm)
-                    .teleprompterMini(bgOpacity: telepVm.bgOpacity)
+                    .teleprompterMini(bgOpacity: telepVm.bgOpacity, editingMode: telepVm.editMode)
                 
                 Spacer()
                 

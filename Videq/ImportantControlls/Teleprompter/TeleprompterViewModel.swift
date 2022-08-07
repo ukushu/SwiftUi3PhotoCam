@@ -4,6 +4,7 @@ import SwiftUI
 class TeleprompterViewModel: ObservableObject {
     @Published var displaySettings = false
     @Published var miniMode: Bool
+    @Published var editMode = false
     
     @Published var mirrorYAxis: Bool = false
     @Published var marginsH: CGFloat = 0

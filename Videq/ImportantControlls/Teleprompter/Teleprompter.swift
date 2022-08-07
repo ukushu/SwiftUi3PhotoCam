@@ -13,8 +13,6 @@ struct TeleprompterView: View {
     
     @ObservedObject var keyboardHeightHelper = KeyboardHeightHelper()
     
-    @State var editMode = false
-    
     var body: some View {
         VStack(spacing:0) {
             if model.mirrorYAxis {
@@ -30,8 +28,8 @@ struct TeleprompterView: View {
 
 extension TeleprompterView {
     func TeleprompterBodyView() -> some View {
-        VStack{
-            if editMode {
+        VStack(spacing: 0){
+            if model.editMode {
                 TextEditor(text: $model.text)
                 
                 TeleprompterEditModeBtnsPanel()
@@ -69,43 +67,54 @@ extension TeleprompterView {
             SimultaneousGesture(TapGesture(count: 1), TapGesture(count: 2))
                 .onEnded { gestureValue in
                     if gestureValue.second != nil {
-                        editMode.toggle()
+                        model.editMode.toggle()
                     } else if gestureValue.first != nil {
                         model.displaySettings = false
                     }
                 }
         )
-        .animation(.easeInOut, value: editMode)
+        .animation(.easeInOut, value: model.editMode)
         .padding(.bottom, keyboardHeightHelper.keyboardHeight)
     }
     
     func TeleprompterEditModeBtnsPanel() -> some View {
-        HStack (spacing: 40){
-            Button(action: { editMode.toggle(); model.position.y = Globals.teleprompterSafeArea } )
+        HStack (spacing: 30){
+            Spacer(minLength: 0)
+            
+            Button(action: { model.editMode.toggle(); model.position.y = Globals.teleprompterSafeArea } )
                 { SuperBtnLabel(text: "Close", icon: "xmark.circle.fill") }
             
             Button(action: { model.text = "" } )
                 { SuperBtnLabel(text: "Clear", icon: "doc") }
             
             Button(action: { pasteboardPaste() } )
-                { SuperBtnLabel(text: "Paste", icon: "arrowshape.turn.up.left.fill") }
+                { SuperBtnLabel(text: "Paste", icon: "doc.on.clipboard") }
+            
+            Spacer(minLength: 0)
         }
-        .padding(.bottom, 20)
+        .padding(.vertical, 20)
+        .background(.ultraThinMaterial)
     }
 }
 
 extension View {
-    func teleprompterMini(bgOpacity: CGFloat) -> some View {
-        self.background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: bgOpacity))
-            .frame(height: UIScreen.screenHeight/3*1.6, alignment: .top)
-            .clipShape(Rectangle())
-            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
-            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
-            .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+    @ViewBuilder
+    func teleprompterMini(bgOpacity: CGFloat, editingMode: Bool) -> some View {
+        if editingMode {
+            self.frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/3*2, alignment: .top)
+                .clipShape(Rectangle())
+        } else {
+            self.background(Color(red: 0.1, green: 0.1, blue: 0.1, opacity: bgOpacity))
+                .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight/3*1.6, alignment: .top)
+                .clipShape(Rectangle())
+                .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+                .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+                .mask(LinearGradient(gradient: Gradient(colors: [.black, .black, .black, .clear]), startPoint: .top, endPoint: .bottom) )
+        }
     }
     
     func teleprompterMaxi(height: CGFloat) -> some View  {
-        self.frame(height: height, alignment: .top)
+        self.frame(width: UIScreen.screenWidth, height: height, alignment: .top)
             .clipShape(Rectangle())
     }
 }
@@ -127,13 +136,14 @@ struct SuperBaseBtnLabel : View {
 }
 
 struct SuperBtnLabel : View {
-    let text: String
+    let text: LocalizedStringKey
     let icon: String
     
     var body: some View {
         Label {
             Text(text)
                 .foregroundColor(.orange)
+                .fixedSize()
         } icon: {
             Image (systemName : icon)
                 .foregroundColor(.orange)
