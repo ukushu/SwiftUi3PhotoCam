@@ -34,7 +34,6 @@
 		1DA39BDC289F66CD0098C7BB /* HeaderBgLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */; };
 		1DA39BDE289F875C0098C7BB /* VideoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BDD289F875C0098C7BB /* VideoGridView.swift */; };
 		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
-		1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */; };
 		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
 		1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* TelepromterView.swift */; };
 		1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */; };
@@ -110,7 +109,6 @@
 		1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBgLine.swift; sourceTree = "<group>"; };
 		1DA39BDD289F875C0098C7BB /* VideoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridView.swift; sourceTree = "<group>"; };
 		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedYet.swift; sourceTree = "<group>"; };
 		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		1DDC26BB289EF3130056ADED /* TelepromterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterView.swift; sourceTree = "<group>"; };
 		1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterSettingsView.swift; sourceTree = "<group>"; };
@@ -308,7 +306,6 @@
 			children = (
 				1DDC26BB289EF3130056ADED /* TelepromterView.swift */,
 				1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */,
-				1DDC26B7289EEFF30056ADED /* NotImplementedYet.swift */,
 			);
 			path = AppScenes;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */,
 				1DA39BDE289F875C0098C7BB /* VideoGridView.swift in Sources */,
 				1DDD318D289E120B00FB4E22 /* TouchView.swift in Sources */,
-				1DDC26B8289EEFF30056ADED /* NotImplementedYet.swift in Sources */,
 				1DDD3190289E124900FB4E22 /* Configuration.swift in Sources */,
 				1D61CCCC289DE2EB00044AA2 /* PublishedExt.swift in Sources */,
 				1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */,

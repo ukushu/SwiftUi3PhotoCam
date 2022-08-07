@@ -8,8 +8,6 @@ struct MainMenuView : View {
         ZStack {
             MenuBody()
             
-            VideoGridView()
-            
             if (scene != .splashScreen && scene != .mainMenu) {
                 VStack {
                     HStack {

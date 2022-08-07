@@ -3,7 +3,10 @@ import AVFoundation
 
 struct MainAppView : View {
     init() {
-        Visualizer.start()
+        if let langStr = Locale.current.languageCode {
+            Visualizer.start()
+            print(langStr)
+        }
     }
     
     var body: some View {
