@@ -76,6 +76,21 @@ struct TeleprompterSettingsBtn: View {
     }
 }
 
+struct VideoCamSettingsBtn: View {
+    @Binding var displaySettings: Bool
+    
+    var body: some View {
+        Button(action: { displaySettings.toggle() }) {
+            Image(systemName: "camera.aperture")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(.orange)
+                .scaledToFit()
+                .frame(width: 24, height: 24)
+        }
+    }
+}
+
 struct BtnReels: View {
     @EnvironmentObject var camera: CameraModel
 

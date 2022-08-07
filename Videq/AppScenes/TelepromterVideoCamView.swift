@@ -32,12 +32,12 @@ struct TelepromterVideoCamView: View {
             
             HeaderBgLine()
             
-            SettingsBtn()
+            SettingsBtns()
             
             VStack {
                 Spacer()
                 
-                TeleprompterSettingsView(model: telepVm, isMini: false)
+                TeleprompterSettingsView(model: telepVm)
             }
         }
         .overlay{
@@ -51,15 +51,19 @@ struct TelepromterVideoCamView: View {
 }
 
 extension TelepromterVideoCamView {
-    func SettingsBtn() -> some View {
+    func SettingsBtns() -> some View {
         VStack {
             HStack {
                 Spacer()
                 
+                VideoCamSettingsBtn(displaySettings: $telepVm.displaySettings)
+                    .padding(.trailing, 10)
+                
                 TeleprompterSettingsBtn(displaySettings: $telepVm.displaySettings)
                     .padding(.trailing, 15)
-                    .padding(.top, 5)
             }
+            .padding(.top, 5)
+            
             Spacer()
         }
     }

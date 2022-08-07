@@ -23,7 +23,7 @@ struct TeleprompterSceneView: View {
             VStack {
                 Spacer()
                 
-                TeleprompterSettingsView(model: model, isMini: false)
+                TeleprompterSettingsView(model: model)
                     .padding(.bottom, 20)
             }
         }

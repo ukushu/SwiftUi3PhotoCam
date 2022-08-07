@@ -10,7 +10,6 @@ import SwiftUI
 
 struct TeleprompterSettingsView: View {
     @ObservedObject var model: TeleprompterViewModel
-    let isMini: Bool
     
     var body: some View {
             VStack {
@@ -29,20 +28,21 @@ struct TeleprompterSettingsView: View {
                                     .padding(.leading, 10)
                             }
                             
-                            if isMini {
+                            if model.miniMode {
                                 BgOpacitySlider()
+                                    .padding(.trailing, 50)
                             }
                             
                             MarginsSlider()
                             
-                            if !isMini {
+                            if !model.miniMode {
                                 Toggle("Mirror by Y axis", isOn: $model.mirrorYAxis)
                             }
                         }
                     }
                     .padding(.vertical)
                     .padding(.horizontal, 15)
-                    .background(isMini ? .ultraThickMaterial : .ultraThinMaterial)
+                    .background(model.miniMode ? .ultraThickMaterial : .ultraThinMaterial)
                 }
             }
             .animation(.easeInOut, value: model.displaySettings)
