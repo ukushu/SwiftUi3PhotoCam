@@ -8,6 +8,8 @@ struct MainMenuView : View {
         ZStack {
             MenuBody()
             
+            VideoGridView()
+            
             if (scene != .splashScreen && scene != .mainMenu) {
                 VStack {
                     HStack {
@@ -54,12 +56,20 @@ struct MainMenuView : View {
             HStack {
                 Button(action: { scene = .reelsCam } ) { Text("Reels/Pause Camera") }
                 
-                HelpButt() { Text("Give you ability to record lot of videos and combine them into single one") }
+                HelpButt() { HelpReelsView() }
             }
             
-            Button(action: { scene = .teleprompter } ) { Text("Teleprompter") }
+            HStack {
+                Button(action: { scene = .teleprompter } ) { Text("Teleprompter") }
+                
+                HelpButt() { HelpTeleprompterView() }
+            }
             
-            Button(action: { scene = .teleprompterCam } ) { Text("Teleprompter + Camera") }
+            HStack {
+                Button(action: { scene = .teleprompterCam } ) { Text("Teleprompter + Camera") }
+                
+                HelpButt() { HelpTeleprompterPlusCamView() }
+            }
             
             Button(action: { scene = .support } ) { Text("Contact Support") }
         }
@@ -70,6 +80,35 @@ struct MainMenuView : View {
 ////////////////////
 ///HELPERS
 ///////////////////
+
+
+struct HelpReelsView: View {
+    var body: some View {
+        Text("Give you ability to record lot of videos and combine them into single one")
+    }
+}
+
+struct HelpTeleprompterView: View {
+    var body: some View {
+        VStack(spacing: 40) {
+            Text("Created for use with phisical teleprompters that uses phone as screen.\nLike a \"Parrot Teleprompter\"")
+            
+            Image("ParrotTeleprompter1")
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 300)
+        }
+    }
+}
+
+struct HelpTeleprompterPlusCamView: View {
+    var body: some View {
+        VStack(spacing: 40) {
+            Text("Created for use phone as videorecorder and as teleprompter both")
+        }
+    }
+}
+
 
 extension MainMenuView {
     func NotImplementedYet() -> some  View {
@@ -98,7 +137,7 @@ enum AppScene {
 fileprivate extension MainMenuView {
 
     func splashScreenDisableIfNeeded() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             if scene == .splashScreen {
                 scene = .mainMenu
             }
@@ -108,15 +147,22 @@ fileprivate extension MainMenuView {
 
 fileprivate struct SplashScreenView : View {
     var body: some View {
-        VStack {
+        HStack {
             Spacer()
             
-            Image("StartScreenLogo")
-                .resizable()
-                .scaledToFit()
+            VStack {
+                Spacer()
+                
+                Image("StartScreenLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 130)
+                
+                Spacer()
+            }
             
             Spacer()
         }
-        .background(.white)
+        .background(.black)
     }
 }
