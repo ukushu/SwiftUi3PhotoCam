@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1D01CEF4289CA0E2004ED83D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D01CEF3289CA0E2004ED83D /* CameraView.swift */; };
 		1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D01CEF5289CA119004ED83D /* CameraViewModel.swift */; };
+		1D0BF32828A010810075768F /* ScenePauseCam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0BF32728A010810075768F /* ScenePauseCam.swift */; };
+		1D0BF32A28A011CE0075768F /* CameraControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0BF32928A011CE0075768F /* CameraControlsView.swift */; };
 		1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735C5289C6AE20076EF38 /* PCamApp.swift */; };
 		1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735C7289C6AE20076EF38 /* MainAppView.swift */; };
 		1D3735CA289C6AE40076EF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3735C9289C6AE40076EF38 /* Assets.xcassets */; };
@@ -21,7 +23,7 @@
 		1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCCE289DE5D400044AA2 /* ColorExt.swift */; };
 		1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD0289DFA9E00044AA2 /* Controlls.swift */; };
 		1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */; };
-		1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */; };
+		1D95CB6C289CBF5A000557E5 /* SceneTelepromterVideoCam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D95CB6B289CBF5A000557E5 /* SceneTelepromterVideoCam.swift */; };
 		1D95CB71289D454B000557E5 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 1D95CB70289D454B000557E5 /* Introspect */; };
 		1DA39BC0289F34790098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BBE289F34790098C7BB /* Localizable.strings */; };
 		1DA39BC4289F34EF0098C7BB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DA39BC2289F34EF0098C7BB /* Localizable.strings */; };
@@ -35,7 +37,7 @@
 		1DA39BDE289F875C0098C7BB /* VideoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA39BDD289F875C0098C7BB /* VideoGridView.swift */; };
 		1DDC26B5289E576C0056ADED /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B4289E576C0056ADED /* ToDo.swift */; };
 		1DDC26BA289EF0240056ADED /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26B9289EF0240056ADED /* MainMenuView.swift */; };
-		1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* TelepromterView.swift */; };
+		1DDC26BC289EF3130056ADED /* SceneTeleprompter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BB289EF3130056ADED /* SceneTeleprompter.swift */; };
 		1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */; };
 		1DDC26C3289F15910056ADED /* fillParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26C2289F15910056ADED /* fillParent.swift */; };
 		1DDC26C5289F24B30056ADED /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDC26C4289F24B30056ADED /* KeyboardHelper.swift */; };
@@ -82,6 +84,8 @@
 /* Begin PBXFileReference section */
 		1D01CEF3289CA0E2004ED83D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		1D01CEF5289CA119004ED83D /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		1D0BF32728A010810075768F /* ScenePauseCam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePauseCam.swift; sourceTree = "<group>"; };
+		1D0BF32928A011CE0075768F /* CameraControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControlsView.swift; sourceTree = "<group>"; };
 		1D3735C2289C6AE20076EF38 /* Videq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Videq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3735C5289C6AE20076EF38 /* PCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamApp.swift; sourceTree = "<group>"; };
 		1D3735C7289C6AE20076EF38 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
@@ -97,7 +101,7 @@
 		1D61CCCE289DE5D400044AA2 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 		1D61CCD0289DFA9E00044AA2 /* Controlls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controlls.swift; sourceTree = "<group>"; };
 		1D61CCD2289DFDF900044AA2 /* VideoPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreview.swift; sourceTree = "<group>"; };
-		1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterVideoCamView.swift; sourceTree = "<group>"; };
+		1D95CB6B289CBF5A000557E5 /* SceneTelepromterVideoCam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTelepromterVideoCam.swift; sourceTree = "<group>"; };
 		1DA39BBF289F34790098C7BB /* ge */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ge; path = Localizable.strings; sourceTree = "<group>"; };
 		1DA39BC3289F34EF0098C7BB /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Localizable.strings; sourceTree = "<group>"; };
 		1DA39BC7289F350C0098C7BB /* jp */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = jp; path = Localizable.strings; sourceTree = "<group>"; };
@@ -110,7 +114,7 @@
 		1DA39BDD289F875C0098C7BB /* VideoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGridView.swift; sourceTree = "<group>"; };
 		1DDC26B4289E576C0056ADED /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		1DDC26B9289EF0240056ADED /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
-		1DDC26BB289EF3130056ADED /* TelepromterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelepromterView.swift; sourceTree = "<group>"; };
+		1DDC26BB289EF3130056ADED /* SceneTeleprompter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTeleprompter.swift; sourceTree = "<group>"; };
 		1DDC26BD289EF4020056ADED /* TeleprompterSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeleprompterSettingsView.swift; sourceTree = "<group>"; };
 		1DDC26C2289F15910056ADED /* fillParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fillParent.swift; sourceTree = "<group>"; };
 		1DDC26C4289F24B30056ADED /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			children = (
 				1D01CEF3289CA0E2004ED83D /* CameraView.swift */,
 				1D01CEF5289CA119004ED83D /* CameraViewModel.swift */,
+				1D0BF32928A011CE0075768F /* CameraControlsView.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -304,8 +309,9 @@
 		1DDC26B6289EEF9C0056ADED /* AppScenes */ = {
 			isa = PBXGroup;
 			children = (
-				1DDC26BB289EF3130056ADED /* TelepromterView.swift */,
-				1D95CB6B289CBF5A000557E5 /* TelepromterVideoCamView.swift */,
+				1D0BF32728A010810075768F /* ScenePauseCam.swift */,
+				1DDC26BB289EF3130056ADED /* SceneTeleprompter.swift */,
+				1D95CB6B289CBF5A000557E5 /* SceneTelepromterVideoCam.swift */,
 			);
 			path = AppScenes;
 			sourceTree = "<group>";
@@ -552,14 +558,16 @@
 				1DDC26C3289F15910056ADED /* fillParent.swift in Sources */,
 				1DA39BDC289F66CD0098C7BB /* HeaderBgLine.swift in Sources */,
 				1DDD3197289E143800FB4E22 /* Globals.swift in Sources */,
+				1D0BF32828A010810075768F /* ScenePauseCam.swift in Sources */,
 				1DDD3194289E131500FB4E22 /* UIWindow+Swizzle.swift in Sources */,
 				1DDD319D289E14B900FB4E22 /* TeleprompterViewModel.swift in Sources */,
+				1D0BF32A28A011CE0075768F /* CameraControlsView.swift in Sources */,
 				1DA39BDA289F3E6A0098C7BB /* HelpButt.swift in Sources */,
-				1DDC26BC289EF3130056ADED /* TelepromterView.swift in Sources */,
+				1DDC26BC289EF3130056ADED /* SceneTeleprompter.swift in Sources */,
 				1DDC26BE289EF4020056ADED /* TeleprompterSettingsView.swift in Sources */,
 				1DDD3192289E12D600FB4E22 /* Visualiser.swift in Sources */,
 				1D61CCCA289D768300044AA2 /* BoundsSlider.swift in Sources */,
-				1D95CB6C289CBF5A000557E5 /* TelepromterVideoCamView.swift in Sources */,
+				1D95CB6C289CBF5A000557E5 /* SceneTelepromterVideoCam.swift in Sources */,
 				1DA39BD8289F3E350098C7BB /* PopoverButt.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
 				1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */,

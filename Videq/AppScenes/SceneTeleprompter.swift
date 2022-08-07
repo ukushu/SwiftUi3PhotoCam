@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct TeleprompterSceneView: View {
+struct SceneTeleprompter: View {
     @ObservedObject var model = TeleprompterViewModel(miniMode: false)
     
     var body: some View {
@@ -31,7 +31,7 @@ struct TeleprompterSceneView: View {
     }
 }
 
-extension TeleprompterSceneView {
+extension SceneTeleprompter {
     func SettingsBtn() -> some View {
         VStack {
             HStack {

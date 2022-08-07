@@ -78,7 +78,7 @@ extension TeleprompterView {
     }
     
     func TeleprompterEditModeBtnsPanel() -> some View {
-        HStack (spacing: 30){
+        HStack (spacing: 25){
             Spacer(minLength: 0)
             
             Button(action: { model.editMode.toggle(); model.position.y = Globals.teleprompterSafeArea } )
@@ -90,9 +90,14 @@ extension TeleprompterView {
             Button(action: { pasteboardPaste() } )
                 { SuperBtnLabel(text: "Paste", icon: "doc.on.clipboard") }
             
+            Button(action: {  } )
+                { SuperBtnLabel(text: "Open", icon: "doc.plaintext.fill") }
+                .disabled(true)
+                .opacity(0.5)
+            
             Spacer(minLength: 0)
         }
-        .padding(.vertical, 20)
+        .padding(.vertical, 15)
         .background(.ultraThinMaterial)
     }
 }
@@ -140,19 +145,33 @@ struct SuperBtnLabel : View {
     let icon: String
     
     var body: some View {
-        Label {
+        VStack{
+            Image(systemName : icon)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 25)
+            
             Text(text)
                 .foregroundColor(.orange)
                 .fixedSize()
-        } icon: {
-            Image (systemName : icon)
-                .foregroundColor(.orange)
+                .font(.system(size: 10))
         }
+        .foregroundColor(.orange)
         .padding(7)
-        .background{
-            RoundedRectangle(cornerRadius: 5)
-                .fill(Color(UIColor.systemGray))
-        }
+        
+//        Label {
+//            Text(text)
+//                .foregroundColor(.orange)
+//                .fixedSize()
+//        } icon: {
+//            Image (systemName : icon)
+//                .foregroundColor(.orange)
+//        }
+//        .padding(7)
+//        .background{
+//            RoundedRectangle(cornerRadius: 5)
+//                .fill(Color(UIColor.systemGray))
+//        }
     }
 }
 

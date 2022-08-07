@@ -3,7 +3,7 @@ import AVFoundation
 import Foundation
 import Introspect
 
-struct TelepromterVideoCamView: View {
+struct SceneTelepromterVideoCam: View {
     @StateObject var camera = CameraModel()
     @ObservedObject var telepVm = TeleprompterViewModel(miniMode: true)
     
@@ -17,17 +17,11 @@ struct TelepromterVideoCamView: View {
                     .teleprompterMini(bgOpacity: telepVm.bgOpacity, editingMode: telepVm.editMode)
                 
                 Spacer()
-                
-                ZStack {
-                    BtnReels()
-                        .environmentObject(camera)
-                    
-                    BtnVideoPreview()
-                        .environmentObject(camera)
-                        .frame(maxWidth:.infinity, alignment: .trailing)
-                        .padding(.trailing)
-                }
-                .padding(.bottom, 30)
+            }
+            
+            if !telepVm.displaySettings {
+                CameraControlsView()
+                    .environmentObject(camera)
             }
             
             HeaderBgLine()
@@ -50,7 +44,7 @@ struct TelepromterVideoCamView: View {
     }
 }
 
-extension TelepromterVideoCamView {
+extension SceneTelepromterVideoCam {
     func SettingsBtns() -> some View {
         VStack {
             HStack {

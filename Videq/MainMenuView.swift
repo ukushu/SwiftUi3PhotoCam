@@ -3,6 +3,7 @@ import SwiftUI
 
 struct MainMenuView : View {
     @State var scene = AppScene.splashScreen
+    @State var emailSheetDisplayed: Bool = false
     
     var body: some View {
         ZStack {
@@ -29,14 +30,12 @@ struct MainMenuView : View {
             case .mainMenu:
                 MainMenuView()
             case .teleprompterCam:
-                TelepromterVideoCamView()
+                SceneTelepromterVideoCam()
                     .background(Color(red: 0, green: 0, blue: 0.01, opacity: 0.01))
             case .reelsCam:
-                NotImplementedYet()
+                ScenePauseCam()
             case .teleprompter:
-                TeleprompterSceneView()
-            case .support:
-                NotImplementedYet()
+                SceneTeleprompter()
             case .splashScreen:
                 SplashScreenView()
             }
@@ -69,7 +68,7 @@ struct MainMenuView : View {
                 HelpButt() { HelpTeleprompterPlusCamView() }
             }
             
-            Button(action: { scene = .support } ) { Text("Contact Support") }
+            Button("Support Email") { openMail() }
         }
     }
 }
@@ -78,6 +77,32 @@ struct MainMenuView : View {
 ////////////////////
 ///HELPERS
 ///////////////////
+func openMail() {
+    openMail(emailTo: "skulptorrr@gmail.com", subject: "VIDEOQ: feature request/feedback", body:"Huston, we have a problem!\n\n..")
+}
+
+func openMail(emailTo:String, subject: String, body: String) {
+    if let url = URL(string: "mailto:\(emailTo)?subject=\(subject.fixToBrowserString())&body=\(body.fixToBrowserString())"),
+       UIApplication.shared.canOpenURL(url)
+    {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+}
+
+extension String {
+    func fixToBrowserString() -> String {
+        self.replacingOccurrences(of: ";", with: "%3B")
+            .replacingOccurrences(of: "\n", with: "%0D%0A")
+            .replacingOccurrences(of: " ", with: "+")
+            .replacingOccurrences(of: "!", with: "%21")
+            .replacingOccurrences(of: "\"", with: "%22")
+            .replacingOccurrences(of: "\\", with: "%5C")
+            .replacingOccurrences(of: "/", with: "%2F")
+            .replacingOccurrences(of: "‘", with: "%91")
+            .replacingOccurrences(of: ",", with: "%2C")
+            //more symbols fixes here: https://mykindred.com/htmlspecialchars.php
+    }
+}
 
 
 struct HelpReelsView: View {
@@ -123,7 +148,7 @@ enum AppScene {
     case teleprompter
     case teleprompterCam
     case mainMenu
-    case support
+    //case support
     case splashScreen
 }
 
