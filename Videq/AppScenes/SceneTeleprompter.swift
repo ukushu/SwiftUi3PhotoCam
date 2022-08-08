@@ -87,7 +87,7 @@ extension SceneTeleprompter {
                     self.delayedStartTime = 3
                 }
                 
-                print("runDelayedStart - \( Int(delayedStartTime) )")
+                print("\( Int(delayedStartTime) )")
             }
             
             delayedStartRunner()
@@ -117,7 +117,8 @@ fileprivate struct ConfigureDelayedStartView: View {
                 .padding(50)
             
             HStack {
-                Button(action: { delayedStartGoing = false }) {
+                //TODO: show only in horisontal mode
+                Button(action: { dialogDisplayed = false; delayedStartGoing = false }) {
                     SuperBtnLabel(text: "Cancel", icon: "arrowshape.turn.up.backward.fill")
                 }
                 

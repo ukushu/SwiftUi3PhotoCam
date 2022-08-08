@@ -7,7 +7,7 @@
  * Video resolution
  * Video frame rate
  * Countdown timer: 3, 2, 1 перед записом
- * +- 9 cell grid
+ * +- 9 cell grid -- icon "grid"
  
  Far-far away update
  * Bionic Reading
