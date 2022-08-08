@@ -27,8 +27,8 @@ struct SceneTeleprompter: View {
             
             BackToMainMenuBtn(confirmationNeeded: false)
             
-            if delayedStartGoing {
-                DelayedStartTimeView(time: Int(delayedStartTime), mirror: false)
+            if delayedStartGoing && !model.autoscrollIsGoing {
+                DelayedStartTimeView(time: Int(delayedStartTime), mirror: model.mirrorYAxis)
             }
             
             VStack {
@@ -54,7 +54,10 @@ extension SceneTeleprompter {
             HStack {
                 Spacer()
                 
-                TeleprompterDelayedStartBtn(show: $delayedStartDialog)
+                if !model.autoscrollIsGoing {
+                    TeleprompterDelayedStartBtn(show: $delayedStartDialog)
+                        .padding(.trailing, 5)
+                }
                 
                 TeleprompterSettingsBtn(displaySettings: $model.displaySettings)
                     .padding(.trailing, 15)
@@ -73,7 +76,7 @@ extension SceneTeleprompter {
     func delayedStartRunner() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             guard delayedStartGoing else { delayedStartRunner(); return }
-            guard !model.autoscrollIsGoing else { self.delayedStartGoing = false; return }
+            guard !model.autoscrollIsGoing else { delayedStartRunner(); self.delayedStartGoing = false; return }
                 
             if delayedStartTime >= 1 {
                 delayedStartTime -= 1
@@ -97,7 +100,7 @@ fileprivate struct ConfigureDelayedStartView: View {
     @Binding var time: CGFloat
     @Binding var delayedStartGoing: Bool
     
-    init( dialogDisplayed: Binding<Bool>, time: Binding<CGFloat>,delayedStartGoing: Binding<Bool> ) {
+    init( dialogDisplayed: Binding<Bool>, time: Binding<CGFloat>, delayedStartGoing: Binding<Bool> ) {
         _dialogDisplayed = dialogDisplayed
         _time = time
         _delayedStartGoing = delayedStartGoing
@@ -114,11 +117,11 @@ fileprivate struct ConfigureDelayedStartView: View {
                 .padding(50)
             
             HStack {
-                Button(action: { delayedStartGoing.toggle() }) {
+                Button(action: { delayedStartGoing = false }) {
                     SuperBtnLabel(text: "Cancel", icon: "arrowshape.turn.up.backward.fill")
                 }
                 
-                Button(action: { dialogDisplayed.toggle(); delayedStartGoing = true }) {
+                Button(action: { dialogDisplayed = false; delayedStartGoing = true }) {
                     SuperBtnLabel(text: "Start!", icon: "play.fill")
                 }
             }
@@ -139,5 +142,6 @@ struct DelayedStartTimeView: View {
                     .fill(.ultraThinMaterial)
                     .frame(width: 200, height: 200)
             }
+            .if(mirror) { $0.rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0)) }
     }
 }

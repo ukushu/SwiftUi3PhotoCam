@@ -86,7 +86,7 @@ struct TeleprompterDelayedStartBtn: View {
                 .renderingMode(.template)
                 .foregroundColor(.orange)
                 .scaledToFit()
-                .frame(width: 25, height: 25)
+                .frame(width: 23, height: 23)
         }
     }
 }
