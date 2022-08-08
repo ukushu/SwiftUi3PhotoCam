@@ -11,6 +11,7 @@ import SwiftUI
 
 struct VideoPreview: View {
     @ObservedObject var model: CameraModel
+    @State private var isDelConfirmDialogDisplayed: Bool = false
     
     var body: some View {
         ZStack{
@@ -51,8 +52,10 @@ extension VideoPreview {
                 }
                 
                 HStack() {
-                    Button(action: { model.deleteCurr() } )
-                        { SuperBtnLabel(text: "Delete", icon: "trash") }
+                    Button(action: { isDelConfirmDialogDisplayed.toggle() } ) { SuperBtnLabel(text: "Delete", icon: "trash") }
+                        .confirmationDialog("", isPresented: $isDelConfirmDialogDisplayed) {
+                            Button("Delete!", role: .destructive) { model.deleteCurr() }
+                        }
                     
                     Button(action: { model.saveResult() } )
                         { SuperBtnLabel(text: "Save", icon: "square.and.arrow.down.fill") }

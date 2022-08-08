@@ -2,6 +2,8 @@
  * підтримка горизонтальної орієнтації
  * контакт саппорт
  * зберігати налаштування кольору
+ * Sufler mode: delayed start (зверху часики, клікаєш і вибираєш час до 60 секунд)
+ * Unsaved data confirmation dialog
  
  VideoSettings:
  * Choose camera (front is default)

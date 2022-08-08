@@ -110,12 +110,14 @@ struct HelpReelsView: View {
 struct HelpTeleprompterView: View {
     var body: some View {
         VStack(spacing: 40) {
-            Text("Created for use with phisical teleprompters that uses phone as screen.\nLike a \"Parrot Teleprompter\"")
+            Text("Created for use with phisical teleprompters that uses phone's display as image source.\n\nExample:")
             
             Image("ParrotTeleprompter1")
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 300)
+            
+            Text("Padcaster Parrot Teleprompter")
         }
     }
 }
