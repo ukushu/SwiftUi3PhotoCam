@@ -1,7 +1,6 @@
 /*
  * підтримка горизонтальної орієнтації
  * зберігати налаштування кольору
- * Sufler mode: delayed start (зверху часики, клікаєш і вибираєш час до 60 секунд)
  
  VideoSettings:
  * Choose camera (front is default)

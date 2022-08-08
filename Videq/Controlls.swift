@@ -76,6 +76,21 @@ struct TeleprompterSettingsBtn: View {
     }
 }
 
+struct TeleprompterDelayedStartBtn: View {
+    @Binding var show: Bool
+    
+    var body: some View {
+        Button(action: { show.toggle() }) {
+            Image(systemName: "timer")
+                .resizable()
+                .renderingMode(.template)
+                .foregroundColor(.orange)
+                .scaledToFit()
+                .frame(width: 25, height: 25)
+        }
+    }
+}
+
 struct VideoCamSettingsBtn: View {
     @Binding var displaySettings: Bool
     

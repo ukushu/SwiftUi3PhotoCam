@@ -27,4 +27,6 @@ class TeleprompterViewModel: ObservableObject {
     init(miniMode: Bool) {
         _miniMode = Published(initialValue: miniMode)
     }
+    
+    var autoscrollIsGoing: Bool { position.y < Globals.teleprompterSafeArea - 10 && !userDragging}
 }

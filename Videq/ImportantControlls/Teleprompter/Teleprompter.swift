@@ -185,7 +185,7 @@ extension TeleprompterView {
     func autoScroll() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             withAnimation{
-                if model.position.y < Globals.teleprompterSafeArea - 10 && !model.userDragging {
+                if model.autoscrollIsGoing {
                     model.position.y -= model.speed
                 }
             }
