@@ -13,7 +13,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     
     // MARK: Video Recorder Properties
     @Published var isRecording: Bool = false
-    @Published var recordedURLs: [URL] = []
+    @Published var recordedURLs: [URL] = [] { didSet { if recordedURLs.count == 0 { showPreview = false} } }
     var previewURL: URL? {
         if recordedURLs.indices.contains(previewURLidx) {
             return previewURLidx == -1 ? nil : recordedURLs[previewURLidx]
@@ -125,8 +125,10 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
                         print("EXPORT SUCCESS: \(finalURL)")
                         
                         DispatchQueue.main.async {
-                            self.recordedURLs = [finalURL]
+                            self.recordedURLs = []
                         }
+                        
+                        UISaveVideoAtPathToSavedPhotosAlbum(finalURL.path, nil, nil, nil)
                     }
                 }
             }
@@ -148,10 +150,11 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
                     of: asset.tracks(withMediaType: .video)[0],
                     at: lastTime
                 )
+                // safe check if video has an audio
                 if !asset.tracks(withMediaType: .audio).isEmpty {
                     try audioTrack.insertTimeRange(
                         CMTimeRange(start: .zero, duration: asset.duration),
-                        of: asset.tracks(withMediaType: .video)[0],
+                        of: asset.tracks(withMediaType: .audio)[0],
                         at: lastTime
                     )
                 }

@@ -26,7 +26,7 @@ struct SceneTelepromterVideoCam: View {
             
             HeaderBgLine()
             
-            BackToMainMenuBtn()
+            BackToMainMenuBtn(confirmationNeeded: camera.recordedURLs.count > 0 || camera.isRecording)
             
             SettingsBtns()
             

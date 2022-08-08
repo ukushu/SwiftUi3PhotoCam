@@ -27,12 +27,12 @@ struct ScenePauseCam: View {
             CameraControlsView()
                 .environmentObject(camera)
             
-            if let url = camera.previewURL, camera.showPreview {
+            if let _ = camera.previewURL, camera.showPreview {
                 VideoPreview(model: camera)
                     .transition(.move (edge:.trailing))
                     
             } else {
-                BackToMainMenuBtn()
+                BackToMainMenuBtn(confirmationNeeded: camera.recordedURLs.count > 0 || camera.isRecording)
             }
             
         }

@@ -149,8 +149,18 @@ struct BtnVideoPreview: View {
 }
 
 struct BackToMainMenuBtn : View {
+    let confirmationNeeded: Bool
+    @State var isDelConfirmDialogDisplayed = false
+    
     var body: some View {
-        BackBtn { TheApp.shared.scene = .mainMenu }
+        if confirmationNeeded {
+            BackBtn { isDelConfirmDialogDisplayed.toggle() }
+                .confirmationDialog("", isPresented: $isDelConfirmDialogDisplayed) {
+                    Button("Delete unsaved data!", role: .destructive) { TheApp.shared.scene = .mainMenu }
+                }
+        } else {
+            BackBtn { TheApp.shared.scene = .mainMenu }
+        }
     }
 }
 
