@@ -3,10 +3,15 @@
 "Teleprompter + Camera" = "Телесуфлер + камера";
 "Contact Support" = "Техпідтримка";
 "Reels/Pause Camera" = "Камера з паузою";
-"Back"="Назад";
-"Preview"="Переглянути";
 
+"Back"="Назад";
+"Preview"="Рев'ю";
 "Close"="Вийти";
 "Clear"="Очистити";
 "Paste"="Вставити";
 "Open"= "Відкрити";
+"Cancel"= "Відмінити";
+"Start!"= "Старт!";
+"Delete!"="Видалити, трясця його матері!";
+
+"Delete unsaved data!"="Видалити незбережене!";

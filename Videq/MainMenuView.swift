@@ -74,7 +74,7 @@ public class TheApp: ObservableObject {
 ///HELPERS
 ///////////////////
 func openMail() {
-    openMail(emailTo: "skulptorrr@gmail.com", subject: "VIDEOQ: feature request/feedback", body:"Huston, we have a problem!\n\n..")
+    openMail(emailTo: "skulptorrr@gmail.com", subject: "VIDEQ: feature request/feedback", body:"Huston, we have a problem!\n\n..")
 }
 
 func openMail(emailTo:String, subject: String, body: String) {
