@@ -14,7 +14,15 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     // MARK: Video Recorder Properties
     @Published var isRecording: Bool = false
     @Published var recordedURLs: [URL] = []
-    @Published var previewURL: URL?
+    var previewURL: URL? {
+        if recordedURLs.indices.contains(previewURLidx) {
+            return previewURLidx == -1 ? nil : recordedURLs[previewURLidx]
+        }
+        
+        return nil
+    }
+    
+    @Published var previewURLidx: Int = -1 { didSet { if previewURLidx == -1 { showPreview = false} } }
     @Published var showPreview: Bool = false
     
     //Top Progress Bar
@@ -97,36 +105,32 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
         print(outputFileURL)
         
         self.recordedURLs.append(outputFileURL)
+        self.previewURLidx = recordedURLs.count - 1
         
-        if recordedURLs.count == 1 {
-            self.previewURL = outputFileURL
-            return
-        }
-        
+    }
+    
+    func saveResult() {
         // Converting URLS to assets
         let assets = recordedURLs.compactMap{ url -> AVURLAsset in
             return AVURLAsset(url: url)
         }
         
-        //self.previewURL = nil
-        
-//        mergeVideos(assets: assets) { exporter in
-//            exporter.exportAsynchronously {
-//                if exporter.status == .failed {
-//                    // HANDLE error
-//                    print(exporter.error!)
-//                } else {
-//                    if let finalURL = exporter.outputURL {
-//                        print("EXPORT SUCCESS: \(finalURL)")
-//                        
-//                        DispatchQueue.main.async {
-//                            self.previewURL = finalURL
-//                        }
-//                    }
-//                }
-//            }
-//            
-//        }
+        mergeVideos(assets: assets) { exporter in
+            exporter.exportAsynchronously {
+                if exporter.status == .failed {
+                    // HANDLE error
+                    print(exporter.error!)
+                } else {
+                    if let finalURL = exporter.outputURL {
+                        print("EXPORT SUCCESS: \(finalURL)")
+                        
+                        DispatchQueue.main.async {
+                            self.recordedURLs = [finalURL]
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func mergeVideos(assets: [AVURLAsset], completion: @escaping (_ exporter: AVAssetExportSession) -> () ) {

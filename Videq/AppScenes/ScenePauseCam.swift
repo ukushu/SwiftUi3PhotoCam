@@ -28,11 +28,13 @@ struct ScenePauseCam: View {
                 .environmentObject(camera)
             
             if let url = camera.previewURL, camera.showPreview {
-                VideoPreview(url: url, showPreview: $camera.showPreview)
+                VideoPreview(model: camera)
                     .transition(.move (edge:.trailing))
+                    
             } else {
                 BackToMainMenuBtn()
             }
+            
         }
     }
 }
