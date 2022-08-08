@@ -118,6 +118,8 @@ struct HelpTeleprompterView: View {
                 .frame(maxWidth: 300)
             
             Text("Padcaster Parrot Teleprompter")
+            
+            LoopingPlayer(resourceName: "Parrot2", withExtension: "mp4")
         }
     }
 }

@@ -22,6 +22,10 @@
 		1D21664A28A0D8450044D24B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D21664828A0D8450044D24B /* Localizable.strings */; };
 		1D21664E28A0D8960044D24B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D21664C28A0D8960044D24B /* Localizable.strings */; };
 		1D21665228A0D8BE0044D24B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D21665028A0D8BE0044D24B /* Localizable.strings */; };
+		1D21665428A0DF990044D24B /* lockOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21665328A0DF990044D24B /* lockOrientation.swift */; };
+		1D21665828A105300044D24B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D21665628A105300044D24B /* Localizable.strings */; };
+		1D21665A28A109750044D24B /* LoopingPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21665928A109750044D24B /* LoopingPlayer.swift */; };
+		1D21666128A163210044D24B /* Parrot2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1D21666028A163210044D24B /* Parrot2.mp4 */; };
 		1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735C5289C6AE20076EF38 /* PCamApp.swift */; };
 		1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3735C7289C6AE20076EF38 /* MainAppView.swift */; };
 		1D3735CA289C6AE40076EF38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3735C9289C6AE40076EF38 /* Assets.xcassets */; };
@@ -108,6 +112,10 @@
 		1D21664928A0D8450044D24B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		1D21664D28A0D8960044D24B /* sw */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sw; path = Localizable.strings; sourceTree = "<group>"; };
 		1D21665128A0D8BE0044D24B /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localizable.strings; sourceTree = "<group>"; };
+		1D21665328A0DF990044D24B /* lockOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lockOrientation.swift; sourceTree = "<group>"; };
+		1D21665728A105300044D24B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		1D21665928A109750044D24B /* LoopingPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingPlayer.swift; sourceTree = "<group>"; };
+		1D21666028A163210044D24B /* Parrot2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Parrot2.mp4; sourceTree = "<group>"; };
 		1D3735C2289C6AE20076EF38 /* Videq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Videq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3735C5289C6AE20076EF38 /* PCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCamApp.swift; sourceTree = "<group>"; };
 		1D3735C7289C6AE20076EF38 /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
@@ -258,6 +266,22 @@
 			path = tr.lproj;
 			sourceTree = "<group>";
 		};
+		1D21665528A105050044D24B /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				1D21665628A105300044D24B /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		1D21665B28A109CC0044D24B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1D21666028A163210044D24B /* Parrot2.mp4 */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		1D3735B9289C6AE20076EF38 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +290,7 @@
 				1D61CCC8289D767300044AA2 /* MoreSwiftUI */,
 				1D3735C4289C6AE20076EF38 /* Videq */,
 				1DDC26C6289F33930056ADED /* Locals */,
+				1D21665B28A109CC0044D24B /* Assets */,
 				1D3735D5289C6AE40076EF38 /* VideqTests */,
 				1D3735DF289C6AE40076EF38 /* VideqUITests */,
 				1D3735C3289C6AE20076EF38 /* Products */,
@@ -339,6 +364,8 @@
 				1DA39BD9289F3E6A0098C7BB /* HelpButt.swift */,
 				1DA39BDB289F66CD0098C7BB /* HeaderBgLine.swift */,
 				1DA39BDD289F875C0098C7BB /* VideoGridView.swift */,
+				1D21665328A0DF990044D24B /* lockOrientation.swift */,
+				1D21665928A109750044D24B /* LoopingPlayer.swift */,
 			);
 			path = MoreSwiftUI;
 			sourceTree = "<group>";
@@ -425,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				1DA39BCD289F359A0098C7BB /* uk.lproj */,
+				1D21665528A105050044D24B /* en.lproj */,
 				1DA39BC9289F35760098C7BB /* pl.lproj */,
 				1DA39BC5289F34FB0098C7BB /* ja.lproj */,
 				1DA39BC1289F34D40098C7BB /* it.lproj */,
@@ -633,6 +661,7 @@
 				1DA39BC4289F34EF0098C7BB /* Localizable.strings in Resources */,
 				1DA39BC8289F350C0098C7BB /* Localizable.strings in Resources */,
 				1D21663A28A0D6BA0044D24B /* Localizable.strings in Resources */,
+				1D21666128A163210044D24B /* Parrot2.mp4 in Resources */,
 				1D21665228A0D8BE0044D24B /* Localizable.strings in Resources */,
 				1D21662C28A0D57C0044D24B /* Localizable.strings in Resources */,
 				1D3735CD289C6AE40076EF38 /* Preview Assets.xcassets in Resources */,
@@ -645,6 +674,7 @@
 				1DDC26CD289F34350056ADED /* Localizable.strings in Resources */,
 				1D21664228A0D7AB0044D24B /* Localizable.strings in Resources */,
 				1D21664E28A0D8960044D24B /* Localizable.strings in Resources */,
+				1D21665828A105300044D24B /* Localizable.strings in Resources */,
 				1DA39BD0289F35B60098C7BB /* Localizable.strings in Resources */,
 				1D3735CA289C6AE40076EF38 /* Assets.xcassets in Resources */,
 			);
@@ -676,6 +706,7 @@
 				1D61CCD3289DFDF900044AA2 /* VideoPreview.swift in Sources */,
 				1D61CCD1289DFA9E00044AA2 /* Controlls.swift in Sources */,
 				1D21662428A09A8F0044D24B /* Space.swift in Sources */,
+				1D21665428A0DF990044D24B /* lockOrientation.swift in Sources */,
 				1D01CEF4289CA0E2004ED83D /* CameraView.swift in Sources */,
 				1D61CCCF289DE5D400044AA2 /* ColorExt.swift in Sources */,
 				1D01CEF6289CA119004ED83D /* CameraViewModel.swift in Sources */,
@@ -702,6 +733,7 @@
 				1DA39BD8289F3E350098C7BB /* PopoverButt.swift in Sources */,
 				1D3735C8289C6AE20076EF38 /* MainAppView.swift in Sources */,
 				1D3735C6289C6AE20076EF38 /* PCamApp.swift in Sources */,
+				1D21665A28A109750044D24B /* LoopingPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +838,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				1D21665128A0D8BE0044D24B /* tr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		1D21665628A105300044D24B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D21665728A105300044D24B /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
