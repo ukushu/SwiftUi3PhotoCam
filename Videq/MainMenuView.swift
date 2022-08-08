@@ -109,17 +109,19 @@ struct HelpReelsView: View {
 
 struct HelpTeleprompterView: View {
     var body: some View {
-        VStack(spacing: 40) {
-            Text("Created for use with phisical teleprompters that uses phone's display as image source.\n\nExample:")
+        VStack(alignment: .center, spacing: 30) {
+            Text("Created for use iphone/ipad as image source for phisical teleprompters.")
+            Text("Example: Parrot Teleprompter")
             
             Image("ParrotTeleprompter1")
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: 300)
             
-            Text("Padcaster Parrot Teleprompter")
-            
             LoopingPlayer(resourceName: "Parrot2", withExtension: "mp4")
+                .frame(width: 250, height: 250)
+            
+            Text("This mode will have absent some useless features for professionas to have more clear design")
         }
     }
 }
@@ -128,6 +130,8 @@ struct HelpTeleprompterPlusCamView: View {
     var body: some View {
         VStack(spacing: 40) {
             Text("Created for use phone as videorecorder and as teleprompter at the same time")
+            
+            Text("This mode will be most useful for non-professional videoblogers and tiktok users")
         }
     }
 }

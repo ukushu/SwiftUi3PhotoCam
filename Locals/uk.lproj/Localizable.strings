@@ -15,3 +15,7 @@
 "Delete!"="Видалити, трясця його матері!";
 
 "Delete unsaved data!"="Видалити незбережене!";
+
+//HELP
+
+"Created for use with phisical teleprompters that uses phone's display as image source.\n\nExample:"="Створений для використання з фізичними телесуфлерами, що використовують телефон як джерело зображення.\n\nПриклад:";

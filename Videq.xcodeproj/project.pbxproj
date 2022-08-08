@@ -277,6 +277,7 @@
 		1D21665B28A109CC0044D24B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1D3735C9289C6AE40076EF38 /* Assets.xcassets */,
 				1D21666028A163210044D24B /* Parrot2.mp4 */,
 			);
 			path = Assets;
@@ -317,7 +318,6 @@
 				1D61CCD0289DFA9E00044AA2 /* Controlls.swift */,
 				1DDD3195289E141D00FB4E22 /* Others */,
 				1DDD3198289E147A00FB4E22 /* ImportantControlls */,
-				1D3735C9289C6AE40076EF38 /* Assets.xcassets */,
 				1D3735CB289C6AE40076EF38 /* Preview Content */,
 			);
 			path = Videq;
