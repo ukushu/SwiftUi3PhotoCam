@@ -121,7 +121,7 @@ struct HelpTeleprompterView: View {
             LoopingPlayer(resourceName: "Parrot2", withExtension: "mp4")
                 .frame(width: 250, height: 250)
             
-            Text("This mode will have absent some useless features for professionas to have more clear design")
+            Text("This mode will have absent some useless features for professionas so design as clear as possible")
         }
     }
 }

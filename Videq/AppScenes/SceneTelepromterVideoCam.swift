@@ -35,6 +35,11 @@ struct SceneTelepromterVideoCam: View {
                 
                 TeleprompterSettingsView(model: telepVm)
             }
+            
+            if let _ = camera.previewURL, camera.showPreview {
+                VideoPreview(model: camera)
+                    .transition(.move (edge:.trailing))
+            }
         }
         .overlay{
             
