@@ -35,6 +35,30 @@ struct ScenePauseCam: View {
                 BackToMainMenuBtn(confirmationNeeded: camera.recordedURLs.count > 0 || camera.isRecording)
             }
             
+            VideoConfigView()
+                .environmentObject(camera)
+        }
+    }
+}
+
+struct VideoConfigView: View {
+    @EnvironmentObject var camera: CameraModel
+    
+    @State var test = 0
+    
+    var body: some View {
+        VStack {
+            Space()
+            VStack {
+                HStack {
+                    if camera.qualityPersets.count > 1 {
+                        Text("\(camera.qualityPersets[test].asStr)")
+                        
+                        BoundsSliderInt(min: 0, max: (camera.qualityPersets.count-1), value: $test)
+                    }
+                }.frame(width: 200)
+            }
+            .background(.ultraThinMaterial)
         }
     }
 }

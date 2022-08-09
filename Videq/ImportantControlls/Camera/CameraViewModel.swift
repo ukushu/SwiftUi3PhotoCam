@@ -12,7 +12,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     @Published var preview: AVCaptureVideoPreviewLayer!
     
     // MARK: Video Recorder Properties
-    @Published var isRecording: Bool = false
+    @Published private(set) var isRecording: Bool = false
     @Published var recordedURLs: [URL] = [] { didSet { if recordedURLs.count == 0 && showPreview { showPreview = false} } }
     var previewURL: URL? {
         if recordedURLs.indices.contains(previewURLidx) {
@@ -24,6 +24,15 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     
     @Published var previewURLidx: Int = -1 { didSet { if previewURLidx == -1 && showPreview { showPreview = false} } }
     @Published var showPreview: Bool = false
+    
+    let qualityPersets: [AVCaptureSession.Preset]
+    
+    override init() {
+        let sess = AVCaptureSession()
+        self.qualityPersets = sess.sessionPersetsAvailable
+        _session = Published(initialValue: sess)
+        super.init()
+    }
 }
 
 extension CameraModel {
@@ -80,12 +89,20 @@ extension CameraModel {
 }
 
 extension CameraModel {
+//    func setResolution(format: CMFormatDescription) {
+//        guard let device = (session.inputs.first as? AVCaptureDeviceInput)?.device
+//        else { return }
+//
+//    }
+    
     func switchCamera() {
         guard let currDevicePos = (session.inputs.first as? AVCaptureDeviceInput)?.device.position
         else { return }
         
         //Indicate that some changes will be made to the session
         session.beginConfiguration()
+        
+        //session.sessionPreset = .hd4K3840x2160
         
         //Get new input
         guard let newCamera = cameraWithPosition(position: (currDevicePos == .back) ? .front : .back )
@@ -136,6 +153,14 @@ extension CameraModel {
         }
     }
     
+    func setQuality(perset: AVCaptureSession.Preset) {
+        session.beginConfiguration()
+        
+        self.session.sessionPreset = perset
+        
+        session.commitConfiguration()
+    }
+    
     func setUp() {
         do {
             self.session.beginConfiguration()
@@ -169,9 +194,47 @@ extension CameraModel {
 ///HELPERS
 //////////////////////////////
 
+extension AVCaptureSession.Preset {
+    var asStr: String {
+        switch self {
+        case .hd4K3840x2160:
+            return "3840x2160"
+        case .hd1920x1080:
+            return "1920x1080"
+        case .hd1280x720:
+            return "1280x720"
+        case .iFrame960x540:
+            return "960x540"
+        default:
+            return "unsupported"
+        }
+    }
+}
+
+extension AVCaptureSession {
+    var sessionPersetsAvailable: [AVCaptureSession.Preset] {
+        var rez: [AVCaptureSession.Preset] = []
+        
+        if self.canSetSessionPreset(.iFrame960x540) {
+            rez.append(.iFrame960x540)
+        }
+        if self.canSetSessionPreset(.hd1280x720) {
+            rez.append(.hd1280x720)
+        }
+        if self.canSetSessionPreset(.hd1920x1080) {
+            rez.append(.hd1920x1080)
+        }
+        if self.canSetSessionPreset(.hd4K3840x2160) {
+            rez.append(.hd4K3840x2160)
+        }
+        
+        return rez
+    }
+}
+
 fileprivate extension CameraModel {
     func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
-        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInTelephotoCamera, .builtInDualCamera, .builtInTrueDepthCamera], mediaType: AVMediaType.video, position: .unspecified)
+        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .unspecified)
         for device in discoverySession.devices {
             if device.position == position {
                 return device
@@ -241,3 +304,12 @@ fileprivate extension CameraModel {
         completion(exporter)
     }
 }
+
+//fileprivate extension CameraModel {
+//    // all is available in iOS 11.1
+//    var supportedDevices: [AVCaptureDevice.DeviceType] { return [.builtInWideAngleCamera,.builtInTripleCamera, .builtInDualCamera] }
+//}
+
+
+// Need to look
+//https://gist.github.com/yusuke024/3b5a89835deab5b9027efea794b80a45
