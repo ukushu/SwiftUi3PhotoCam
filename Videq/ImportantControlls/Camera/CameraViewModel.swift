@@ -29,60 +29,9 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     @Published var recordedDuration: CFloat = 0
     // YOUR OWN TIMING
     @Published var maxDuration: CGFloat = 20
-    
-    func checkPermission() {
-        print ("checkPermission()...")
-        
-        // first checking camera has got permission...
-        switch AVCaptureDevice.authorizationStatus (for: .video) {
-        
-        case .authorized:
-            self.setUp()
-            return
-            // Setting Up Session...
-        case .notDetermined:
-            AVCaptureDevice.requestAccess (for: .video) { (status) in
-                if status {
-                    self.setUp()
-                }
-            }
-        case .denied:
-            self.alert.toggle()
-            return
-        default:
-            return
-        }
-    }
-    
-    func setUp() {
-        print ("setUp()...")
-        
-        do {
-            self.session.beginConfiguration ( )
-            
-            let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position : .back)
-            let videoInput = try AVCaptureDeviceInput (device: videoDevice!)
-            
-            let audioDevice = AVCaptureDevice.default(for: .audio)
-            let audioInput = try AVCaptureDeviceInput (device: audioDevice!)
-            
-            // checking and adding to session .. .
-            if self.session.canAddInput(videoInput) && self.session.canAddInput(audioInput)  {
-                self.session.addInput(videoInput)
-                self.session.addInput(audioInput)
-            }
-            
-            // same for output. ...
-            if self.session.canAddOutput(self.output) {
-                self.session.addOutput(self.output)
-            }
-            
-            self.session.commitConfiguration()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
+}
+
+extension CameraModel {
     func startRecording() {
         let tempURL = NSTemporaryDirectory() + "\(Date() ).mov"
         output.startRecording(to: URL(fileURLWithPath: tempURL) , recordingDelegate: self)
@@ -102,11 +51,10 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
         }
         
         //CREATED SUCCESSFULLY
-        print(outputFileURL)
+        //print(outputFileURL)
         
         self.recordedURLs.append(outputFileURL)
         self.previewURLidx = recordedURLs.count - 1
-        
     }
     
     func saveResult() {
@@ -133,6 +81,109 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
                 }
             }
         }
+    }
+}
+
+extension CameraModel {
+    func switchCamera() {
+        guard let currDevicePos = (session.inputs.first as? AVCaptureDeviceInput)?.device.position
+        else { return }
+        
+        //Indicate that some changes will be made to the session
+        session.beginConfiguration()
+        
+        //Get new input
+        guard let newCamera = cameraWithPosition(position: (currDevicePos == .back) ? .front : .back )
+        else {
+            print("ERROR: Issue in cameraWithPosition() method")
+            return
+        }
+        
+        do {
+            let newVideoInput = try AVCaptureDeviceInput(device: newCamera)
+            
+            while session.inputs.count > 0 {
+                session.removeInput(session.inputs[0])
+            }
+            
+            session.addInput(newVideoInput)
+        } catch let err1 as NSError {
+            print("Error creating capture device input: \(err1.localizedDescription)")
+        }
+        
+        //Commit all the configuration changes at once
+        session.commitConfiguration()
+    }
+}
+
+extension CameraModel {
+    func checkPermission() {
+        print ("checkPermission()...")
+        
+        // first checking camera has got permission...
+        switch AVCaptureDevice.authorizationStatus (for: .video) {
+        
+        case .authorized:
+            self.setUp()
+            return
+            // Setting Up Session...
+        case .notDetermined:
+            AVCaptureDevice.requestAccess (for: .video) { (status) in
+                if status {
+                    self.setUp()
+                }
+            }
+        case .denied:
+            self.alert.toggle()
+            return
+        default:
+            return
+        }
+    }
+    
+    func setUp() {
+        do {
+            self.session.beginConfiguration()
+            
+            let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position : .front)
+            let videoInput = try AVCaptureDeviceInput (device: videoDevice!)
+            
+            let audioDevice = AVCaptureDevice.default(for: .audio)
+            let audioInput = try AVCaptureDeviceInput (device: audioDevice!)
+            
+            // checking and adding to session .. .
+            if self.session.canAddInput(videoInput) && self.session.canAddInput(audioInput)  {
+                self.session.addInput(videoInput)
+                self.session.addInput(audioInput)
+            }
+            
+            // same for output. ...
+            if self.session.canAddOutput(self.output) {
+                self.session.addOutput(self.output)
+            }
+            
+            self.session.commitConfiguration()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+}
+
+
+/////////////////////////////
+///HELPERS
+//////////////////////////////
+
+fileprivate extension CameraModel {
+    func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInTripleCamera, .builtInTelephotoCamera, .builtInDualCamera, .builtInTrueDepthCamera], mediaType: AVMediaType.video, position: .unspecified)
+        for device in discoverySession.devices {
+            if device.position == position {
+                return device
+            }
+        }
+        
+        return nil
     }
     
     func mergeVideos(assets: [AVURLAsset], completion: @escaping (_ exporter: AVAssetExportSession) -> () ) {

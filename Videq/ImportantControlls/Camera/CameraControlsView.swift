@@ -16,6 +16,11 @@ struct CameraControlsView: View {
             Spacer()
             
             ZStack {
+                if !camera.isRecording {
+                    Button(action: { camera.switchCamera() } ) { SwitchCameraLabel() }
+                    .padding(.trailing, 200)
+                }
+                
                 BtnReels()
                     .environmentObject(camera)
                 
@@ -26,5 +31,16 @@ struct CameraControlsView: View {
             }
             .padding(.bottom, 30)
         }
+    }
+}
+
+struct SwitchCameraLabel: View {
+    var body: some View {
+        Image(systemName: "arrow.triangle.2.circlepath.camera")
+            .renderingMode(.template)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 40)
+            .foregroundColor(.white)
     }
 }

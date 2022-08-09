@@ -124,9 +124,8 @@ extension View {
     }
 }
 
-
 struct SuperBaseBtnLabel : View {
-    let text: String
+    let text: LocalizedStringKey
     let icon: String
     
     var body: some View {
