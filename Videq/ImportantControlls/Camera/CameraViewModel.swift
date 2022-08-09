@@ -13,7 +13,7 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
     
     // MARK: Video Recorder Properties
     @Published var isRecording: Bool = false
-    @Published var recordedURLs: [URL] = [] { didSet { if recordedURLs.count == 0 { showPreview = false} } }
+    @Published var recordedURLs: [URL] = [] { didSet { if recordedURLs.count == 0 && showPreview { showPreview = false} } }
     var previewURL: URL? {
         if recordedURLs.indices.contains(previewURLidx) {
             return previewURLidx == -1 ? nil : recordedURLs[previewURLidx]
@@ -22,13 +22,8 @@ class CameraModel: NSObject, ObservableObject, AVCaptureFileOutputRecordingDeleg
         return nil
     }
     
-    @Published var previewURLidx: Int = -1 { didSet { if previewURLidx == -1 { showPreview = false} } }
+    @Published var previewURLidx: Int = -1 { didSet { if previewURLidx == -1 && showPreview { showPreview = false} } }
     @Published var showPreview: Bool = false
-    
-    //Top Progress Bar
-    @Published var recordedDuration: CFloat = 0
-    // YOUR OWN TIMING
-    @Published var maxDuration: CGFloat = 20
 }
 
 extension CameraModel {
